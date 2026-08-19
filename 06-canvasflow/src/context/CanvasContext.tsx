@@ -34,6 +34,8 @@ interface CanvasContextType {
   setIsExportModalOpen: (open: boolean) => void;
   isTemplateModalOpen: boolean;
   setIsTemplateModalOpen: (open: boolean) => void;
+  isPropertiesOpen: boolean;
+  setIsPropertiesOpen: (open: boolean) => void;
 
   // Actions
   selectElement: (id: string | null, multi?: boolean) => void;
@@ -94,9 +96,10 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [activeStrokeStyle, setActiveStrokeStyle] = useState<'solid' | 'dashed' | 'dotted'>('solid');
   const [activeConnectorStyle, setActiveConnectorStyle] = useState<ConnectorStyle>('bezier');
 
-  // Modals
+  // Modals & Panels
   const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState<boolean>(false);
+  const [isPropertiesOpen, setIsPropertiesOpen] = useState<boolean>(true);
 
   // Undo / Redo History Stacks
   const [historyPast, setHistoryPast] = useState<CanvasElement[][]>([]);
@@ -392,6 +395,8 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setIsExportModalOpen,
         isTemplateModalOpen,
         setIsTemplateModalOpen,
+        isPropertiesOpen,
+        setIsPropertiesOpen,
         selectElement,
         addElement,
         updateElement,

@@ -54,9 +54,10 @@ export const Navbar: React.FC = () => {
           type="button"
           className={`btn-spatial btn-pill ${isExploded ? 'active' : ''}`}
           onClick={toggleExploded}
+          title="Toggle Exploded View"
         >
           <Layers size={15} color={isExploded ? '#00f0ff' : 'var(--text-muted)'} />
-          <span>{isExploded ? 'Assembled' : 'Explode View'}</span>
+          <span className="hide-mobile">{isExploded ? 'Assembled' : 'Explode'}</span>
         </button>
 
         {/* Snapshot Button */}
@@ -67,7 +68,7 @@ export const Navbar: React.FC = () => {
           title="Take 4K Snapshot"
         >
           <Camera size={15} color="#00f0ff" />
-          <span>4K Snapshot</span>
+          <span className="hide-mobile">Snapshot</span>
         </button>
 
         {/* Cart Trigger */}

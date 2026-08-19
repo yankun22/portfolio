@@ -395,31 +395,45 @@ body {
 }
 
 /* Mobile & Tablet Responsiveness */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .studio-workspace {
     flex-direction: column !important;
+    height: calc(100vh - 64px) !important;
   }
 
   .canvas-viewport {
-    height: 50vh !important;
+    height: 45vh !important;
     flex: none !important;
   }
 
   .customizer-sidebar {
     width: 100% !important;
-    height: 50vh !important;
+    height: 55vh !important;
     border-left: none !important;
     border-top: 1px solid var(--border-subtle) !important;
     overflow-y: auto !important;
   }
 
   .spatial-nav {
-    padding: 0 14px !important;
+    padding: 0 12px !important;
   }
 
   .modal-content-card {
     padding: 16px !important;
     border-radius: var(--radius-lg) !important;
   }
+
+  /* Camera and Studio floating controls on mobile */
+  .studio-toolbar-hud, .camera-view-bar {
+    transform: scale(0.85) translateX(-50%) !important;
+    transform-origin: top left !important;
+  }
 }
+
 

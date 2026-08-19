@@ -219,8 +219,42 @@ body {
   }
 }
 
+.properties-panel-dock {
+  position: absolute;
+  top: 144px;
+  left: 14px;
+  width: 210px;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 90;
+}
+
+.floating-toolbar-dock {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 100;
+}
+
+.mobile-only-close {
+  display: none !important;
+}
+
 /* Mobile & Tablet Responsiveness */
 @media (max-width: 768px) {
+  .mobile-only-close {
+    display: inline-flex !important;
+  }
+
   header.hud-glass {
     top: 8px !important;
     left: 8px !important;
@@ -229,34 +263,38 @@ body {
     height: 48px !important;
   }
 
-  /* Floating toolbar on mobile */
-  .hud-glass[style*="top: 80px"],
-  .hud-glass[style*="top:80px"] {
+  header.hud-glass input {
+    display: none !important;
+  }
+
+  .floating-toolbar-dock {
     top: auto !important;
     bottom: 12px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    max-width: 95vw !important;
+    max-width: 96vw !important;
     overflow-x: auto !important;
     padding: 4px 6px !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  /* Properties panel on mobile */
-  .hud-glass[style*="top: 144px"],
-  .hud-glass[style*="top:144px"] {
-    top: 64px !important;
+  .properties-panel-dock {
+    top: auto !important;
+    bottom: 64px !important;
     left: 8px !important;
-    width: 170px !important;
-    padding: 10px !important;
-    gap: 8px !important;
-    max-height: 55vh !important;
+    right: 8px !important;
+    width: auto !important;
+    max-height: 50vh !important;
     overflow-y: auto !important;
+    border-radius: 16px !important;
+    z-index: 150 !important;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6) !important;
   }
 
-  /* Mini-map on mobile */
   .hud-glass[style*="bottom: 14px"],
   .hud-glass[style*="bottom:14px"] {
     display: none !important;
   }
 }
+
 

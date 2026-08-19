@@ -10,6 +10,7 @@ import {
   Spline,
   GitCommit,
   Minus,
+  X,
 } from 'lucide-react';
 
 export const PropertiesPanel: React.FC = () => {
@@ -28,7 +29,11 @@ export const PropertiesPanel: React.FC = () => {
     setActiveStrokeStyle,
     activeConnectorStyle,
     setActiveConnectorStyle,
+    isPropertiesOpen,
+    setIsPropertiesOpen,
   } = useCanvas();
+
+  if (!isPropertiesOpen) return null;
 
   const colorPalette = [
     { label: 'Cyan', color: '#38bdf8' },
@@ -92,24 +97,20 @@ export const PropertiesPanel: React.FC = () => {
   };
 
   return (
-    <div
-      className="hud-glass"
-      style={{
-        position: 'absolute',
-        top: '144px',
-        left: '14px',
-        width: '210px',
-        borderRadius: '12px',
-        padding: '14px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '14px',
-        zIndex: 90,
-      }}
-    >
-      <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-        <Sliders size={13} color="#38bdf8" />
-        <span>{selectedElement ? `${selectedElement.type.toUpperCase()} STYLES` : 'STROKE & FILL DEFAULTS'}</span>
+    <div className="hud-glass properties-panel-dock">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Sliders size={13} color="#38bdf8" />
+          <span>{selectedElement ? `${selectedElement.type.toUpperCase()} STYLES` : 'STROKE & FILL DEFAULTS'}</span>
+        </div>
+
+        <button
+          onClick={() => setIsPropertiesOpen(false)}
+          className="btn-icon mobile-only-close"
+          style={{ padding: '2px' }}
+        >
+          <X size={14} />
+        </button>
       </div>
 
       {/* 1. Stroke Color Palette */}

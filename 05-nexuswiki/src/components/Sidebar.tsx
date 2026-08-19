@@ -15,9 +15,10 @@ import {
 
 interface SidebarProps {
   onOpenExportModal: () => void;
+  onSelectNote?: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ onOpenExportModal }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ onOpenExportModal, onSelectNote }) => {
   const {
     notes,
     activeNoteId,
@@ -244,7 +245,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenExportModal }) => {
               return (
                 <div
                   key={note.id}
-                  onClick={() => setActiveNoteId(note.id)}
+                  onClick={() => {
+                    setActiveNoteId(note.id);
+                    onSelectNote?.();
+                  }}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -288,7 +292,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenExportModal }) => {
           return (
             <div
               key={note.id}
-              onClick={() => setActiveNoteId(note.id)}
+              onClick={() => {
+                setActiveNoteId(note.id);
+                onSelectNote?.();
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',

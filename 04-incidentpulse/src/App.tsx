@@ -38,7 +38,7 @@ const DashboardContent: React.FC = () => {
         {activeTab === 'command-center' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Top Grid: Service Topology Map + Active Triage Queue */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1.45fr 1fr', gap: '20px', alignItems: 'start' }}>
+            <div className="command-center-grid">
               {/* Interactive Service Topology Map */}
               <TopologyMap />
 

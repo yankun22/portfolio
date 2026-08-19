@@ -411,37 +411,87 @@ body {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+}
+
 /* Mobile & Tablet Responsiveness */
 @media (max-width: 768px) {
   .app-layout {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56px;
+  }
+
+  .nexus-pane {
+    display: none;
+    width: 100% !important;
+    height: calc(100vh - 56px) !important;
+    overflow-y: auto;
+  }
+
+  .nexus-pane.mobile-active {
+    display: flex !important;
     flex-direction: column !important;
   }
 
   .sidebar {
     width: 100% !important;
-    height: auto !important;
-    max-height: 240px !important;
+    min-width: 100% !important;
+    height: 100% !important;
     border-right: none !important;
-    border-bottom: 1px solid var(--border-subtle) !important;
-    overflow-y: auto !important;
-  }
-
-  .editor-split-container {
-    flex-direction: column !important;
-    overflow-y: auto !important;
-  }
-
-  .editor-pane, .preview-pane {
-    width: 100% !important;
-    height: 50vh !important;
-    border-right: none !important;
-    border-bottom: 1px solid var(--border-subtle) !important;
   }
 
   .backlinks-panel {
     width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
     border-left: none !important;
-    border-top: 1px solid var(--border-subtle) !important;
+  }
+
+  .mobile-bottom-nav {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(10, 15, 26, 0.96);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-medium);
+    z-index: 100;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 8px;
+  }
+
+  .mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .mobile-nav-btn.active {
+    color: #c084fc;
+  }
+
+  .mobile-nav-btn.active svg {
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6));
   }
 }
+
 

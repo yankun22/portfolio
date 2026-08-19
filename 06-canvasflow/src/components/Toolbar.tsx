@@ -14,10 +14,11 @@ import {
   PenTool,
   Highlighter,
   Eraser,
+  Palette,
 } from 'lucide-react';
 
 export const Toolbar: React.FC = () => {
-  const { activeTool, setActiveTool } = useCanvas();
+  const { activeTool, setActiveTool, isPropertiesOpen, setIsPropertiesOpen } = useCanvas();
 
   const tools: Array<{ id: ToolType; label: string; icon: React.ReactNode; shortcut: string }> = [
     { id: 'select', label: 'Select & Move (V)', icon: <MousePointer size={17} />, shortcut: 'V' },
@@ -36,19 +37,7 @@ export const Toolbar: React.FC = () => {
 
   return (
     <div
-      className="hud-glass"
-      style={{
-        position: 'absolute',
-        top: '80px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        borderRadius: '12px',
-        padding: '5px 8px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        zIndex: 100,
-      }}
+      className="hud-glass floating-toolbar-dock"
     >
       {tools.map((tool, idx) => {
         const isActive = activeTool === tool.id;
@@ -70,6 +59,17 @@ export const Toolbar: React.FC = () => {
           </React.Fragment>
         );
       })}
+
+      <div style={{ width: '1px', height: '24px', background: 'var(--border-subtle)', margin: '0 2px' }} />
+
+      {/* Toggle Style/Properties Drawer */}
+      <button
+        onClick={() => setIsPropertiesOpen(!isPropertiesOpen)}
+        className={`tool-btn ${isPropertiesOpen ? 'active' : ''}`}
+        title="Toggle Style & Color Palette"
+      >
+        <Palette size={17} />
+      </button>
     </div>
   );
 };

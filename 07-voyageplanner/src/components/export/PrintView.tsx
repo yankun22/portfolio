@@ -43,7 +43,7 @@ export const PrintView: React.FC<PrintViewProps> = ({
   };
 
   return (
-    <div style={{ padding: '24px 32px', overflowY: 'auto', height: '100%' }}>
+    <div className="print-sheet-container">
       <div
         style={{
           display: 'flex',

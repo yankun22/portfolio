@@ -85,14 +85,26 @@ A showcase of production-grade, high-performance web applications built with **R
 
 ---
 
+### 8. 🫀 [VitalPulse (`08-vitalpulse`)](./08-vitalpulse)
+> **Patient Biometric Health Dashboard, Multi-Metric Time-Series Telemetry & Clinical Analytics Studio**
+
+- **Biometric Trend Telemetry**: Interactive responsive SVG time-series charts for **Blood Pressure (Systolic/Diastolic)** with AHA stage zones, **Resting Heart Rate & HRV**, **Blood Glucose** with Fasting vs Post-Prandial markers and ADA target band, and **Sleep Stages** with stacked hypnograms and 0-100 quality scores.
+- **Medication Adherence Tracker**: Daily medication scheduler across morning, afternoon, evening, and bedtime with 1-click status toggles, streak counters (`🔥 14 Days`), 30-day adherence rate dials, and low supply refill alerts.
+- **Nutrition & Macro Intelligence**: Calorie budget gauge, macro distribution ring (Protein, Carbs, Fats, Fiber), hydration logger with quick-add cups, and automated clinical alerts for high sodium (`>2,300 mg`) and glycemic spikes.
+- **Clinical Risk Calculator**: Interactive **10-Year ASCVD Cardiovascular Disease Risk Calculator** (AHA/ACC Pooled Cohort Equations) with dynamic semi-circular gauge and ATP III **Metabolic Syndrome Matrix** with personalized evidence-based recommendations.
+- **Doctor Summary & Export Suite**: Standardized 30-day clinical report manifest, `@media print` formatted printable A4 medical sheet, 1-click multi-page clinical PDF export (via `jsPDF`), and EHR JSON bundle backup and restore.
+
+---
+
 ## 🛠️ Tech Stack Overview
 
 - **Core**: React 19, TypeScript, Vite 8, Pure Vanilla CSS Design Systems
+- **Biometric Telemetry & Visuals**: Custom SVG Interactive Time-Series Charts, AHA/ACC & ADA Medical Shading Corridors, Dynamic Semi-Circular SVG Gauges
 - **Maps & Geolocation**: Leaflet 1.9, OpenStreetMap Tiles, CartoDB Tiles, Haversine Engine
 - **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls)
 - **Audio DSP & Synthesis**: Web Audio API, Wavesurfer.js v7, OfflineAudioContext
 - **Knowledge Graphs & Diagramming**: D3.js (Force-Directed Simulation), Hardware-Accelerated Infinite SVG/Canvas, Chart.js, HTML5 Canvas 60fps Analysers
-- **Drag-and-Drop & Utilities**: `@dnd-kit/core`, `@dnd-kit/sortable`, KaTeX, JSZip, jsPDF, Canvas-Confetti, Lucide React, Oxlint
+- **Drag-and-Drop & Utilities**: `@dnd-kit/core`, `@dnd-kit/sortable`, KaTeX, JSZip, jsPDF, jspdf-autotable, Canvas-Confetti, Lucide React, Oxlint
 
 ---
 
@@ -123,5 +135,8 @@ cd ../06-canvasflow && npm install && npm run dev
 
 # Run 07-VoyagePlanner
 cd ../07-voyageplanner && npm install && npm run dev
+
+# Run 08-VitalPulse
+cd ../08-vitalpulse && npm install && npm run dev
 ```
 

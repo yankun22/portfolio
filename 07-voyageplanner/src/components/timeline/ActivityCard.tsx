@@ -12,7 +12,7 @@ import {
   Navigation
 } from 'lucide-react';
 import type { Activity } from '../../types/itinerary';
-import { formatMoney } from '../../data/currencies';
+import { formatMoney, convertCurrency } from '../../data/currencies';
 
 interface ActivityCardProps {
   activity: Activity;
@@ -171,9 +171,15 @@ export const ActivityCard: React.FC<ActivityCardProps> = ({
             )}
           </div>
 
-          <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '0.8125rem' }}>
+          <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '0.8125rem', flexShrink: 0 }}>
             {activity.cost > 0
-              ? formatMoney(activity.cost, activity.currency || primaryCurrency)
+              ? (() => {
+                  const storedCurrency = activity.currency || 'USD';
+                  const displayAmount = storedCurrency === primaryCurrency
+                    ? activity.cost
+                    : convertCurrency(activity.cost, storedCurrency, primaryCurrency);
+                  return formatMoney(displayAmount, primaryCurrency);
+                })()
               : 'Free'}
           </div>
         </div>

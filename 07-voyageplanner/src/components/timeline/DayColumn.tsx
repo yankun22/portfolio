@@ -5,6 +5,7 @@ import type { Activity, ItineraryDay } from '../../types/itinerary';
 import { ActivityCard } from './ActivityCard';
 import { DaySummaryBar } from './DaySummaryBar';
 import { calculateDayRouteSummary, calculateHaversineDistance } from '../../services/geoService';
+import { convertCurrency } from '../../data/currencies';
 import { Plus, Navigation2, Navigation } from 'lucide-react';
 
 interface DayColumnProps {
@@ -40,7 +41,15 @@ export const DayColumn: React.FC<DayColumnProps> = ({
     .map((a) => ({ name: a.title, coords: a.location.coords }));
 
   const routeSummary = calculateDayRouteSummary(waypoints);
-  const totalDayCost = sortedActivities.reduce((acc, a) => acc + (a.cost || 0), 0);
+  const totalDayCost = sortedActivities.reduce((acc, a) => {
+    if (!a.cost) return acc;
+    const storedCurrency = a.currency || 'USD';
+    const displayAmount =
+      storedCurrency === primaryCurrency
+        ? a.cost
+        : convertCurrency(a.cost, storedCurrency, primaryCurrency);
+    return acc + displayAmount;
+  }, 0);
 
   return (
     <div

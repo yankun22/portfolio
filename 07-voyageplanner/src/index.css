@@ -489,7 +489,10 @@ html, body, #root {
 .timeline-activities-container {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px 20px;
+  /* Extra bottom padding so last card isn't hidden behind mobile bottom nav */
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 16px;

@@ -53,7 +53,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
         onImportTrip(parsed);
         setImportError(null);
         onClose();
-      } catch (_err) {
+      } catch {
         setImportError('Failed to parse JSON file.');
       }
     };
@@ -70,7 +70,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
       onImportTrip(parsed);
       setImportError(null);
       onClose();
-    } catch (_err) {
+    } catch {
       setImportError('Invalid JSON syntax.');
     }
   };

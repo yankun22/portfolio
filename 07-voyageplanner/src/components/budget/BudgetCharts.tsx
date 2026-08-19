@@ -23,8 +23,8 @@ export const BudgetCharts: React.FC<BudgetChartsProps> = ({ summary }) => {
   const isOverBudget = summary.remainingBudget < 0;
 
   const activeCategories = Object.entries(summary.categoryTotals)
-    .filter(([_, amount]) => amount > 0)
-    .sort(([_, a], [__, b]) => b - a) as [ExpenseCategory, number][];
+    .filter(([, amount]) => amount > 0)
+    .sort(([, a], [, b]) => b - a) as [ExpenseCategory, number][];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>

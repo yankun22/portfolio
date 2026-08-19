@@ -83,25 +83,25 @@ export function saveTripsToStorage(trips: Trip[]): void {
 export function saveActiveTripId(id: string): void {
   try {
     localStorage.setItem(STORAGE_KEYS.ACTIVE_TRIP_ID, id);
-  } catch (_e) {}
+  } catch {}
 }
 
 export function saveCompanionsToStorage(companions: Record<string, Companion[]>): void {
   try {
     localStorage.setItem(STORAGE_KEYS.COMPANIONS, JSON.stringify(companions));
-  } catch (_e) {}
+  } catch {}
 }
 
 export function saveExpensesToStorage(expenses: Record<string, Expense[]>): void {
   try {
     localStorage.setItem(STORAGE_KEYS.EXPENSES, JSON.stringify(expenses));
-  } catch (_e) {}
+  } catch {}
 }
 
 export function savePackingToStorage(packing: Record<string, PackingItem[]>): void {
   try {
     localStorage.setItem(STORAGE_KEYS.PACKING, JSON.stringify(packing));
-  } catch (_e) {}
+  } catch {}
 }
 
 export function exportTripToJson(tripId: string, state: AppStateSnapshot): string {

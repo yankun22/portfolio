@@ -28,10 +28,17 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
 
+  // Convert the stored budget (in trip's native currency) to the selected display currency
+  const tripStoredCurrency = trip.primaryCurrency || 'USD';
+  const totalBudgetInDisplayCurrency =
+    tripStoredCurrency === primaryCurrency
+      ? trip.totalBudget
+      : convertCurrency(trip.totalBudget, tripStoredCurrency, primaryCurrency);
+
   const budgetSummary = calculateTripBudgetSummary(
     expenses,
     companions,
-    trip.totalBudget,
+    totalBudgetInDisplayCurrency,
     primaryCurrency
   );
 

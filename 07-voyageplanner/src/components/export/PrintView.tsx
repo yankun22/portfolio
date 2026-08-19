@@ -2,7 +2,7 @@ import React from 'react';
 import type { Trip } from '../../types/itinerary';
 import type { Companion, Expense } from '../../types/budget';
 import type { PackingItem } from '../../types/packing';
-import { formatMoney } from '../../data/currencies';
+import { formatMoney, convertCurrency } from '../../data/currencies';
 import { calculateTripBudgetSummary } from '../../services/budgetService';
 import { Printer, Download, ArrowLeft } from 'lucide-react';
 
@@ -25,10 +25,16 @@ export const PrintView: React.FC<PrintViewProps> = ({
   onExportPDF,
   onBackToItinerary
 }) => {
+  const tripStoredCurrency = trip.primaryCurrency || 'USD';
+  const totalBudgetInDisplayCurrency =
+    tripStoredCurrency === primaryCurrency
+      ? trip.totalBudget
+      : convertCurrency(trip.totalBudget, tripStoredCurrency, primaryCurrency);
+
   const budgetSummary = calculateTripBudgetSummary(
     expenses,
     companions,
-    trip.totalBudget,
+    totalBudgetInDisplayCurrency,
     primaryCurrency
   );
 

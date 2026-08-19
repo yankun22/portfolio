@@ -113,7 +113,7 @@ export async function fetchActualStreetRoute(
         return result;
       }
     }
-  } catch (_e) {
+  } catch {
     // Fallback if network offline or timeout
   }
 

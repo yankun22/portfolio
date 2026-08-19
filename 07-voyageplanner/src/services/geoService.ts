@@ -152,7 +152,7 @@ export async function searchPlacesOnlineOrOffline(
         return combined.slice(0, 8);
       }
     }
-  } catch (_err) {
+  } catch {
     // Fall back to offline
   }
 

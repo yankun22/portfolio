@@ -96,7 +96,7 @@ export async function fetchDestinationWeather(
         };
       }
     }
-  } catch (_err) {
+  } catch {
     // API failed or offline -> fall back to realistic generated forecast
   }
 

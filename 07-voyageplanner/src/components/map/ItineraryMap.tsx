@@ -6,7 +6,7 @@ import { MapControls, type TileLayerType } from './MapControls';
 import { RouteSimulator } from './RouteSimulator';
 import { NavigationHUD } from './NavigationHUD';
 import { fetchActualStreetRoute } from '../../services/routingService';
-import { formatMoney } from '../../data/currencies';
+import { formatMoney, convertCurrency } from '../../data/currencies';
 
 interface ItineraryMapProps {
   days: ItineraryDay[];
@@ -232,6 +232,11 @@ export const ItineraryMap: React.FC<ItineraryMapProps> = ({
 
       const marker = L.marker([lat, lng], { icon: customIcon });
 
+      const storedCurrency = act.currency || 'USD';
+      const displayCost = storedCurrency === primaryCurrency
+        ? act.cost
+        : convertCurrency(act.cost, storedCurrency, primaryCurrency);
+
       const popupHtml = `
         <div class="map-popup-card">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
@@ -242,7 +247,7 @@ export const ItineraryMap: React.FC<ItineraryMapProps> = ({
           <p style="font-size: 11px; color: #cbd5e1; margin-bottom: 6px;">📍 ${act.location.name}</p>
           ${act.description ? `<p class="map-popup-desc">${act.description}</p>` : ''}
           <div class="map-popup-footer">
-            <span style="font-weight: 700; color: #38bdf8;">${act.cost > 0 ? formatMoney(act.cost, act.currency || primaryCurrency) : 'Free Admission'}</span>
+            <span style="font-weight: 700; color: #38bdf8;">${act.cost > 0 ? formatMoney(displayCost, primaryCurrency) : 'Free Admission'}</span>
             <span style="font-weight: 600; color: ${act.booked ? '#34d399' : '#fbbf24'};">${act.booked ? '✓ Booked' : '○ Planned'}</span>
           </div>
         </div>

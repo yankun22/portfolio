@@ -73,13 +73,26 @@ A showcase of production-grade, high-performance web applications built with **R
 
 ---
 
+### 7. 🧭 [VoyagePlanner (`07-voyageplanner`)](./07-voyageplanner)
+> **Intelligent Travel Itinerary Planner, Continuous Map Routing & Multi-Currency Split-Bill Studio**
+
+- **Interactive Map & Continuous Routing**: Leaflet map engine with numbered sequence pins, day-color-coded category pins, animated polyline routes, and automated bounding box fitting.
+- **Route Playback Simulator**: Real-time traveler marker simulation advancing along polyline waypoints with Play, Pause, Reset, and speed controls (`1x`, `2x`, `5x`).
+- **Draggable Multi-Day Timeline**: Cross-day drag-and-drop scheduling (via `@dnd-kit`) across multiple days and unscheduled bucket list ideas with live distance and travel pace calculations (**Relaxed**, **Moderate**, **Packed**).
+- **Smart Budget & Multi-Currency Splitter**: Categorized expense tracker across 18+ currencies with graph debt minimization solver reducing group expenses to optimal minimal settlements.
+- **Weather Forecast & Rain Advisory**: Open-Meteo climate telemetry with weather-aware packing advice and rain warnings.
+- **Offline Checklist & PDF Suite**: Dynamic packing generator with progress indicators, print sheet preview, and standalone PDF itinerary export (via `jsPDF`).
+
+---
+
 ## 🛠️ Tech Stack Overview
 
 - **Core**: React 19, TypeScript, Vite 8, Pure Vanilla CSS Design Systems
+- **Maps & Geolocation**: Leaflet 1.9, OpenStreetMap Tiles, CartoDB Tiles, Haversine Engine
 - **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls)
 - **Audio DSP & Synthesis**: Web Audio API, Wavesurfer.js v7, OfflineAudioContext
 - **Knowledge Graphs & Diagramming**: D3.js (Force-Directed Simulation), Hardware-Accelerated Infinite SVG/Canvas, Chart.js, HTML5 Canvas 60fps Analysers
-- **Math & Markdown**: KaTeX (LaTeX math rendering), Regex AST WikiLink Parsers, JSZip, Canvas-Confetti, Lucide React, Oxlint
+- **Drag-and-Drop & Utilities**: `@dnd-kit/core`, `@dnd-kit/sortable`, KaTeX, JSZip, jsPDF, Canvas-Confetti, Lucide React, Oxlint
 
 ---
 
@@ -107,4 +120,8 @@ cd ../05-nexuswiki && npm install && npm run dev
 
 # Run 06-CanvasFlow
 cd ../06-canvasflow && npm install && npm run dev
+
+# Run 07-VoyagePlanner
+cd ../07-voyageplanner && npm install && npm run dev
 ```
+

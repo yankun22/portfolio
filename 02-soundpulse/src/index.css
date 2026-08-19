@@ -402,3 +402,26 @@ body {
   from { transform: translateX(40px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .daw-container {
+    padding: 10px 10px 40px 10px;
+    gap: 12px;
+  }
+
+  .rack-grid, .fx-rack-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .drum-pads-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .transport-bar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+}
+

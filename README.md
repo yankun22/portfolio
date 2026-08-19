@@ -1,6 +1,6 @@
 # 🚀 Interactive Web Applications & Engineering Portfolio
 
-A showcase of production-grade, high-performance web applications built with **React 19**, **TypeScript**, **Three.js**, **Web Audio API**, **Chart.js**, and **Wavesurfer.js**.
+A showcase of production-grade, high-performance web applications built with **React 19**, **TypeScript**, **Three.js**, **Web Audio API**, **Chart.js**, **D3.js**, and **Wavesurfer.js**.
 
 ---
 
@@ -39,13 +39,47 @@ A showcase of production-grade, high-performance web applications built with **R
 
 ---
 
+### 4. 🚨 [IncidentPulse (`04-incidentpulse`)](./04-incidentpulse)
+> **Site Reliability Engineering (SRE) Incident Management, Real-Time Dependency Topology & Service Status Command Center**
+
+- **Live Incident Stream & Anomaly Engine**: Simulated WebSocket/SSE streaming feed of access logs, latency anomalies, 5xx floods, and database deadlocks with Web Audio alert sound synthesizer.
+- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Full keyboard navigation to search services, acknowledge incidents, escalate severity, trigger mock rollbacks, and navigate the entire suite.
+- **Incident Triage Kanban Board**: Drag-and-drop 4-stage board (`Investigating`, `Identified`, `Monitoring`, `Resolved`) with automatic dynamic SLA countdown clocks and breach notifications.
+- **Interactive Post-Mortem & RCA Studio**: Form-based post-mortem generator with timeline auto-population, interactive 5-Whys root-cause analysis builder, preventive action items tracker, and live GitHub-flavored Markdown export.
+- **Service Dependency Topology Mesh**: Interactive SVG node graph displaying microservice dependency graphs, live traffic particle flow animations, status halo alerts, and deep telemetry inspection drawers with pod restart and rollback actions.
+
+---
+
+### 5. 🧠 [NexusWiki (`05-nexuswiki`)](./05-nexuswiki)
+> **Interconnected Bi-Directional Note-Taking & D3.js Dynamic Force-Directed Knowledge Graph System**
+
+- **Bi-Directional `[[WikiLink]]` Parser & Live Markdown Editor**: Real-time markdown editor with live `[[WikiLink]]` autocomplete dropdown popup, inline LaTeX math equations via KaTeX, task checklists, and code block syntax highlighting.
+- **Interactive 2D/3D Force-Directed Knowledge Graph**: D3.js physics graph simulation modeling Coulomb repulsion, Hooke spring attraction, degree-based node scaling, and 3D spatial perspective view modes. Hovering isolates connected clusters, while clicking immediately opens that note.
+- **Backlinks & Unlinked Mentions Panel**: Automatic detection of incoming `[[WikiLinks]]` with surrounding excerpt context, and 1-click conversion of plain-text unlinked mentions into bi-directional wiki references.
+- **Full-Text Fuzzy Search Modal (`Ctrl+P` / `Cmd+K`)**: Instant search indexing across note titles, body content, YAML tags, and markdown headers with keyword highlight excerpts.
+- **Lossless Vault Portability**: Export and import entire vaults as a client-side `.zip` archive of individual `.md` markdown files (via `JSZip`) or structured JSON backup bundles.
+
+---
+
+### 6. 🎨 [CanvasFlow (`06-canvasflow`)](./06-canvasflow)
+> **Hardware-Accelerated Infinite Diagramming & Vector Flow Studio**
+
+- **Infinite Pan & Zoom Engine**: Smooth viewport matrix transformations with infinite dot matrix grid scaling (10% to 500% zoom bounds) and mouse-anchor zoom centering.
+- **Smart Magnetic Connectors & Shapes**: Complete shape library (Rectangles, Diamonds, Circles, Sticky Notes, Database Cylinders, Text Blocks) with 4 magnetic anchor ports and persistent dynamic Bézier / Orthogonal / Straight routing.
+- **Freehand Pen & Highlighter**: Smoothed Catmull-Rom spline curves with pressure simulation and semi-transparent highlighter brushes.
+- **History Stack Engine**: Full snapshot-based Undo / Redo (`Cmd+Z`, `Cmd+Shift+Z`) state engine with 8-handle element resizing, rotation, and z-index reordering.
+- **Interactive Mini-Map Radar**: Real-time visual radar HUD displaying whole-canvas item distribution with a draggable viewfinder viewport.
+- **Vector & Raster Export Suite**: Multi-scale PNG rasterization (1x, 2x, 3x), pure standalone SVG vector export, and JSON diagram backup/restore.
+
+---
+
 ## 🛠️ Tech Stack Overview
 
 - **Core**: React 19, TypeScript, Vite 8, Pure Vanilla CSS Design Systems
 - **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls)
 - **Audio DSP & Synthesis**: Web Audio API, Wavesurfer.js v7, OfflineAudioContext
-- **Data Visualization**: Chart.js, HTML5 Canvas 60fps Analysers
-- **Utilities & Export**: jsPDF, Canvas-Confetti, Lucide React, Oxlint
+- **Knowledge Graphs & Diagramming**: D3.js (Force-Directed Simulation), Hardware-Accelerated Infinite SVG/Canvas, Chart.js, HTML5 Canvas 60fps Analysers
+- **Math & Markdown**: KaTeX (LaTeX math rendering), Regex AST WikiLink Parsers, JSZip, Canvas-Confetti, Lucide React, Oxlint
 
 ---
 
@@ -64,4 +98,13 @@ cd ../02-soundpulse && npm install && npm run dev
 
 # Run 03-SpatialCore
 cd ../03-spatialcore && npm install && npm run dev
+
+# Run 04-IncidentPulse
+cd ../04-incidentpulse && npm install && npm run dev
+
+# Run 05-NexusWiki
+cd ../05-nexuswiki && npm install && npm run dev
+
+# Run 06-CanvasFlow
+cd ../06-canvasflow && npm install && npm run dev
 ```

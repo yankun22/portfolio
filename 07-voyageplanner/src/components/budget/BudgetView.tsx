@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Expense, Companion } from '../../types/budget';
+import type { Expense, Companion, Settlement } from '../../types/budget';
 import type { Trip } from '../../types/itinerary';
 import { calculateTripBudgetSummary } from '../../services/budgetService';
 import { formatMoney, convertCurrency } from '../../data/currencies';
@@ -52,6 +52,30 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
 
   const handleDeleteExpense = (id: string) => {
     onUpdateExpenses(expenses.filter((e) => e.id !== id));
+  };
+
+  const handleSettleTransfer = (settlement: Settlement) => {
+    const settlementExpense: Expense = {
+      id: `settle-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
+      tripId: trip.id,
+      title: `Debt Settlement: ${settlement.fromName} → ${settlement.toName}`,
+      category: 'Misc',
+      amount: settlement.amount,
+      currency: settlement.currency,
+      convertedAmount:
+        settlement.currency === primaryCurrency
+          ? settlement.amount
+          : convertCurrency(settlement.amount, settlement.currency, primaryCurrency),
+      date: new Date().toISOString().split('T')[0],
+      payerId: settlement.fromId,
+      splitType: 'EXACT',
+      splits: [{ companionId: settlement.toId, share: settlement.amount }],
+      isSettlement: true,
+      receiptNote: `Settled balance transfer of ${formatMoney(settlement.amount, settlement.currency)}`,
+      createdAt: Date.now()
+    };
+
+    onUpdateExpenses([settlementExpense, ...expenses]);
   };
 
   const getPayerName = (payerId: string): string => {
@@ -119,8 +143,10 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
               <div
                 key={exp.id}
                 style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border-subtle)',
+                  background: exp.isSettlement ? 'rgba(16, 185, 129, 0.04)' : 'var(--bg-card)',
+                  border: exp.isSettlement
+                    ? '1px solid rgba(16, 185, 129, 0.25)'
+                    : '1px solid var(--border-subtle)',
                   borderRadius: 'var(--radius-lg)',
                   padding: '14px 16px',
                   display: 'flex',
@@ -136,14 +162,18 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                       width: 36,
                       height: 36,
                       borderRadius: 'var(--radius-md)',
-                      background: 'var(--bg-secondary)',
+                      background: exp.isSettlement
+                        ? 'rgba(16, 185, 129, 0.15)'
+                        : 'var(--bg-secondary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '1.1rem'
                     }}
                   >
-                    {exp.category === 'Food'
+                    {exp.isSettlement
+                      ? '🤝'
+                      : exp.category === 'Food'
                       ? '🍜'
                       : exp.category === 'Lodging'
                       ? '🏨'
@@ -161,6 +191,9 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                   <div style={{ minWidth: 0 }}>
                     <div
                       style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 8,
                         fontSize: '0.875rem',
                         fontWeight: 700,
                         color: 'var(--text-primary)',
@@ -169,7 +202,22 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                         textOverflow: 'ellipsis'
                       }}
                     >
-                      {exp.title}
+                      <span>{exp.title}</span>
+                      {exp.isSettlement && (
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            fontWeight: 700,
+                            padding: '2px 6px',
+                            borderRadius: 4,
+                            background: 'rgba(16, 185, 129, 0.15)',
+                            color: '#10b981',
+                            flexShrink: 0
+                          }}
+                        >
+                          Settled Payment
+                        </span>
+                      )}
                     </div>
 
                     <div
@@ -183,7 +231,10 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                       }}
                     >
                       <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <User size={12} /> Paid by {getPayerName(exp.payerId)}
+                        <User size={12} />{' '}
+                        {exp.isSettlement && exp.splits[0]
+                          ? `${getPayerName(exp.payerId)} → ${getPayerName(exp.splits[0].companionId)}`
+                          : `Paid by ${getPayerName(exp.payerId)}`}
                       </span>
                       <span>•</span>
                       <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
@@ -207,7 +258,7 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                         fontFamily: 'var(--font-display)',
                         fontSize: '1.05rem',
                         fontWeight: 800,
-                        color: 'var(--text-primary)'
+                        color: exp.isSettlement ? '#34d399' : 'var(--text-primary)'
                       }}
                     >
                       {formatMoney(
@@ -226,22 +277,24 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                   </div>
 
                   <div style={{ display: 'flex', gap: 4 }}>
-                    <button
-                      className="btn-icon"
-                      style={{ width: 28, height: 28 }}
-                      onClick={() => {
-                        setEditingExpense(exp);
-                        setIsModalOpen(true);
-                      }}
-                      title="Edit expense"
-                    >
-                      <Edit2 size={12} />
-                    </button>
+                    {!exp.isSettlement && (
+                      <button
+                        className="btn-icon"
+                        style={{ width: 28, height: 28 }}
+                        onClick={() => {
+                          setEditingExpense(exp);
+                          setIsModalOpen(true);
+                        }}
+                        title="Edit expense"
+                      >
+                        <Edit2 size={12} />
+                      </button>
+                    )}
                     <button
                       className="btn-icon"
                       style={{ width: 28, height: 28 }}
                       onClick={() => handleDeleteExpense(exp.id)}
-                      title="Delete expense"
+                      title={exp.isSettlement ? 'Delete / undo settlement payment' : 'Delete expense'}
                     >
                       <Trash2 size={12} />
                     </button>
@@ -259,6 +312,7 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
           settlements={budgetSummary.settlements}
           currency={primaryCurrency}
           onAddCompanion={onAddCompanion}
+          onSettleDebt={handleSettleTransfer}
         />
 
         <BudgetCharts summary={budgetSummary} />

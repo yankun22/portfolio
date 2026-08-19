@@ -36,6 +36,7 @@ export interface Expense {
   receiptNote?: string;
   dayId?: string;
   createdAt: number;
+  isSettlement?: boolean;
 }
 
 export interface Settlement {

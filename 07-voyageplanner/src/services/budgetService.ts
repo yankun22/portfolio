@@ -47,11 +47,14 @@ export function calculateTripBudgetSummary(
       ? exp.amount
       : convertCurrency(exp.amount, exp.currency, primaryCurrency);
 
-    totalSpent += amountInPrimary;
-    if (categoryTotals[exp.category] !== undefined) {
-      categoryTotals[exp.category] += amountInPrimary;
-    } else {
-      categoryTotals.Misc += amountInPrimary;
+    // Only count actual expenses in trip spending & category distributions (exclude internal settlement transfers)
+    if (!exp.isSettlement) {
+      totalSpent += amountInPrimary;
+      if (categoryTotals[exp.category] !== undefined) {
+        categoryTotals[exp.category] += amountInPrimary;
+      } else {
+        categoryTotals.Misc += amountInPrimary;
+      }
     }
 
     paidMap[exp.payerId] = (paidMap[exp.payerId] || 0) + amountInPrimary;

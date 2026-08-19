@@ -9,13 +9,15 @@ interface SplitSummaryProps {
   settlements: Settlement[];
   currency: string;
   onAddCompanion: (companion: Companion) => void;
+  onSettleDebt?: (settlement: Settlement) => void;
 }
 
 export const SplitSummary: React.FC<SplitSummaryProps> = ({
   balances,
   settlements,
   currency,
-  onAddCompanion
+  onAddCompanion,
+  onSettleDebt
 }) => {
   const [copied, setCopied] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -54,12 +56,16 @@ export const SplitSummary: React.FC<SplitSummaryProps> = ({
     setShowAddForm(false);
   };
 
-  const handleCelebrateSettled = () => {
+  const handleSettle = (s: Settlement) => {
     confetti({
-      particleCount: 80,
+      particleCount: 90,
       spread: 70,
       origin: { y: 0.6 }
     });
+
+    if (onSettleDebt) {
+      onSettleDebt(s);
+    }
   };
 
   return (
@@ -257,11 +263,17 @@ export const SplitSummary: React.FC<SplitSummaryProps> = ({
                   </span>
                   <button
                     className="btn-icon"
-                    style={{ width: 28, height: 28 }}
-                    onClick={handleCelebrateSettled}
-                    title="Mark transaction completed"
+                    style={{
+                      width: 30,
+                      height: 30,
+                      background: 'rgba(16, 185, 129, 0.12)',
+                      border: '1px solid rgba(16, 185, 129, 0.3)',
+                      color: '#10b981'
+                    }}
+                    onClick={() => handleSettle(s)}
+                    title={`Record payment & mark settled: ${s.fromName} pays ${s.toName} ${formatMoney(s.amount, s.currency)}`}
                   >
-                    <Check size={13} color="#10b981" />
+                    <Check size={14} color="#10b981" />
                   </button>
                 </div>
               </div>

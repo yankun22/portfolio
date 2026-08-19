@@ -1518,6 +1518,17 @@ html, body, #root {
   color: #ffffff;
 }
 
+/* Currency row inside mobile menu */
+.mobile-menu-currency-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
 /* Bottom Navigation Bar on Mobile */
 .mobile-bottom-nav {
   position: fixed;

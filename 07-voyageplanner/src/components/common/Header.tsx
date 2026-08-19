@@ -159,10 +159,11 @@ export const Header: React.FC<HeaderProps> = ({
           )}
 
           <select
-            className="form-select currency-picker-header"
+            className="form-select currency-picker-header desktop-only-btn"
             value={selectedCurrency}
             onChange={(e) => onCurrencyChange(e.target.value)}
             title="Change base currency display"
+            style={{ appearance: 'none', WebkitAppearance: 'none', padding: '5px 10px', fontSize: '0.8rem', minWidth: 80 }}
           >
             {POPULAR_CURRENCIES.map((c) => (
               <option key={c.code} value={c.code}>
@@ -235,6 +236,22 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             <div className="mobile-menu-body">
+              {/* Currency Selector for mobile */}
+              <div className="mobile-menu-currency-row">
+                <DollarSign size={16} style={{ flexShrink: 0 }} />
+                <span style={{ flex: 1, fontSize: '0.875rem', fontWeight: 600 }}>Display Currency</span>
+                <select
+                  className="form-select"
+                  value={selectedCurrency}
+                  onChange={(e) => { onCurrencyChange(e.target.value); }}
+                  style={{ appearance: 'none', WebkitAppearance: 'none', padding: '4px 8px', fontSize: '0.8rem', minWidth: 90, background: 'var(--bg-input)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', color: 'var(--text-primary)' }}
+                >
+                  {POPULAR_CURRENCIES.map((c) => (
+                    <option key={c.code} value={c.code}>{c.code} ({c.symbol})</option>
+                  ))}
+                </select>
+              </div>
+
               <button
                 className="mobile-menu-item"
                 onClick={() => {

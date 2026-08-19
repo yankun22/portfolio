@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { Expense, Companion } from '../../types/budget';
 import type { Trip } from '../../types/itinerary';
 import { calculateTripBudgetSummary } from '../../services/budgetService';
-import { formatMoney } from '../../data/currencies';
+import { formatMoney, convertCurrency } from '../../data/currencies';
 import { BudgetCharts } from './BudgetCharts';
 import { SplitSummary } from './SplitSummary';
 import { ExpenseModal } from './ExpenseModal';
@@ -192,8 +192,9 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexShrink: 0 }}>
                   <div style={{ textAlign: 'right' }}>
+                    {/* Always show the amount converted to primary currency */}
                     <div
                       style={{
                         fontFamily: 'var(--font-display)',
@@ -202,11 +203,17 @@ export const BudgetView: React.FC<BudgetViewProps> = ({
                         color: 'var(--text-primary)'
                       }}
                     >
-                      {formatMoney(exp.amount, exp.currency)}
+                      {formatMoney(
+                        exp.currency === primaryCurrency
+                          ? exp.amount
+                          : convertCurrency(exp.amount, exp.currency, primaryCurrency),
+                        primaryCurrency
+                      )}
                     </div>
+                    {/* Show original amount in smaller text if currency differs */}
                     {exp.currency !== primaryCurrency && (
                       <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                        ≈ {formatMoney(exp.convertedAmount, primaryCurrency)}
+                        {formatMoney(exp.amount, exp.currency)}
                       </div>
                     )}
                   </div>

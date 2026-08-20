@@ -10,7 +10,7 @@ export const SleepHypnogram: React.FC<SleepHypnogramProps> = ({ records }) => {
 
   if (records.length === 0) {
     return (
-      <div style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
+      <div style={{ height: 'clamp(180px, 35vw, 240px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
         No sleep telemetry recorded for this timeframe.
       </div>
     );
@@ -227,3 +227,4 @@ export const SleepHypnogram: React.FC<SleepHypnogramProps> = ({ records }) => {
     </div>
   );
 };
+

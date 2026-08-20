@@ -72,6 +72,10 @@ export const DrumPadGrid: React.FC = () => {
                   } as React.CSSProperties
                 }
                 onClick={() => handlePadClick(pad)}
+                onTouchStart={(e) => {
+                  e.preventDefault(); // Prevent the 300ms delayed click
+                  handlePadClick(pad);
+                }}
               >
                 {/* Top Row: Key Badge + Category */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -110,7 +114,7 @@ export const DrumPadGrid: React.FC = () => {
                       step="1"
                       value={pad.pitch}
                       onChange={(e) => updatePad(pad.id, { pitch: parseFloat(e.target.value) })}
-                      style={{ width: '50px', accentColor: pad.color, cursor: 'pointer' }}
+                      style={{ width: '50px', accentColor: pad.color, cursor: 'pointer', touchAction: 'none' }}
                     />
                     <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: pad.color }}>
                       {pad.pitch > 0 ? `+${pad.pitch}` : pad.pitch}
@@ -126,7 +130,7 @@ export const DrumPadGrid: React.FC = () => {
                       step="0.05"
                       value={pad.gain}
                       onChange={(e) => updatePad(pad.id, { gain: parseFloat(e.target.value) })}
-                      style={{ width: '45px', accentColor: pad.color, cursor: 'pointer' }}
+                      style={{ width: '45px', accentColor: pad.color, cursor: 'pointer', touchAction: 'none' }}
                     />
                   </div>
                 </div>

@@ -1839,8 +1839,42 @@ html, body, #root {
   }
 
   .map-hud-btn {
-    padding: 6px 8px !important;
-    font-size: 0.68rem !important;
+    min-height: 44px !important;
+    min-width: 44px !important;
   }
+}
+
+/* Additional mobile polish */
+@media (max-width: 768px) {
+  /* Leaflet zoom controls: bigger touch targets */
+  .leaflet-control-zoom a {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 18px !important;
+  }
+
+  /* Safe area support for iPhone X+ notch */
+  .app-container {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Leaflet map: block touch scroll on the map element */
+  .leaflet-container {
+    touch-action: none !important;
+  }
+
+  /* Header nav: make all buttons bigger */
+  header button, .header-tab-btn {
+    min-height: 44px !important;
+  }
+
+  /* Day tabs row: scrollable */
+  .day-tabs-row {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .day-tabs-row::-webkit-scrollbar { display: none; }
 }
 

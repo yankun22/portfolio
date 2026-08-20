@@ -682,10 +682,30 @@ html, body, #root {
     font-weight: 700;
     cursor: pointer;
     flex: 1;
+    /* 44px minimum touch target */
+    min-height: 44px;
   }
 
   .mobile-bottom-btn.active {
     color: var(--accent-cyan);
+  }
+
+  /* Prevent iOS auto-zoom on form inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Buttons: ensure 44px touch targets */
+  .btn-primary, .btn-secondary, .btn-icon {
+    min-height: 44px;
+  }
+
+  /* Log vital button: ensure visibility on mobile */
+  .log-vital-fab {
+    position: fixed;
+    bottom: 70px;
+    right: 16px;
+    z-index: 800;
   }
 }
 

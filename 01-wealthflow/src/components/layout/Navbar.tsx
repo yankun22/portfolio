@@ -55,9 +55,11 @@ export const Navbar: React.FC = () => {
               key={item.id}
               onClick={() => setActiveTab(item.id)}
               className={`nav-tab-btn ${isActive ? 'active' : ''}`}
+              style={{ minWidth: 40, minHeight: 40 }}
+              title={item.label}
             >
               <Icon size={16} color={isActive ? '#10b981' : 'currentColor'} />
-              <span>{item.label}</span>
+              <span className="nav-label">{item.label}</span>
             </button>
           );
         })}

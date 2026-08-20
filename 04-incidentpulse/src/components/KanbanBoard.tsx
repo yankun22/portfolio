@@ -18,6 +18,7 @@ export const KanbanBoard: React.FC<{ onOpenDeclareModal: () => void }> = ({ onOp
   const [selectedSeverity, setSelectedSeverity] = useState<string>('ALL');
   const [selectedService, setSelectedService] = useState<string>('ALL');
   const [dragOverColumn, setDragOverColumn] = useState<IncidentStatus | null>(null);
+  const [mobileActiveColumn, setMobileActiveColumn] = useState<IncidentStatus>('investigating');
 
   const columns: Array<{
     id: IncidentStatus;
@@ -202,6 +203,49 @@ export const KanbanBoard: React.FC<{ onOpenDeclareModal: () => void }> = ({ onOp
         </button>
       </div>
 
+      {/* Mobile Column Tab Switcher (shown only on < 768px via CSS) */}
+      <div className="kanban-mobile-tabs">
+        {columns.map((col) => {
+          const ColIcon = col.icon;
+          const count = filteredIncidents.filter((i) => i.status === col.id).length;
+          return (
+            <button
+              key={col.id}
+              onClick={() => setMobileActiveColumn(col.id)}
+              className="kanban-mobile-tab-btn"
+              style={{
+                color: mobileActiveColumn === col.id ? col.color : 'var(--text-secondary)',
+                background: 'none',
+                border: 'none',
+                borderBottom: mobileActiveColumn === col.id ? `2px solid ${col.color}` : '2px solid transparent',
+                padding: '10px 12px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                flex: 1,
+                justifyContent: 'center',
+                minHeight: '44px',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <ColIcon size={14} color={mobileActiveColumn === col.id ? col.color : 'currentColor'} />
+              <span>{col.title}</span>
+              <span style={{
+                padding: '1px 6px',
+                borderRadius: '999px',
+                fontSize: '0.7rem',
+                background: mobileActiveColumn === col.id ? col.color : 'rgba(255,255,255,0.1)',
+                color: mobileActiveColumn === col.id ? '#000' : 'var(--text-muted)',
+                fontWeight: 700,
+              }}>{count}</span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Kanban 4 Columns Grid */}
       <div
         style={{
@@ -222,6 +266,7 @@ export const KanbanBoard: React.FC<{ onOpenDeclareModal: () => void }> = ({ onOp
               onDragOver={(e) => handleDragOver(e, col.id)}
               onDragLeave={handleDragLeave}
               onDrop={(e) => handleDrop(e, col.id)}
+              className="kanban-column"
               style={{
                 background: isOver ? 'rgba(6, 182, 212, 0.08)' : 'rgba(10, 15, 24, 0.75)',
                 border: isOver ? '1.5px dashed #06b6d4' : '1px solid var(--border-subtle)',
@@ -233,6 +278,8 @@ export const KanbanBoard: React.FC<{ onOpenDeclareModal: () => void }> = ({ onOp
                 minHeight: '620px',
                 transition: 'all 0.15s ease',
               }}
+              data-column={col.id}
+              data-active={col.id === mobileActiveColumn ? 'true' : 'false'}
             >
               {/* Column Header */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: `2px solid ${col.color}`, paddingBottom: '10px' }}>

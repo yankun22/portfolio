@@ -1,0 +1,623 @@
+/* ==========================================================================
+   HAVEN REALTY — Architectural Design System & Luxury Theme Tokens
+   ========================================================================== */
+
+:root {
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Architectural Dark Palette (Obsidian & Limestone) */
+  --bg-app: #0c0e12;
+  --bg-surface: #12161d;
+  --bg-card: #171c25;
+  --bg-card-hover: #1e2430;
+  --bg-input: #0e1117;
+  --bg-glass: rgba(18, 22, 29, 0.85);
+  --bg-glass-subtle: rgba(18, 22, 29, 0.6);
+  --bg-overlay: rgba(5, 7, 10, 0.85);
+
+  /* Architectural Gold & Brass Accents */
+  --gold-300: #e8cca0;
+  --gold-400: #dfba73;
+  --gold-500: #c5a059;
+  --gold-600: #9e7d38;
+  --gold-glow: rgba(197, 160, 89, 0.25);
+  --gold-subtle: rgba(197, 160, 89, 0.12);
+
+  /* Architectural Material Tones */
+  --travertine-50: #faf8f5;
+  --travertine-100: #f2eee8;
+  --travertine-200: #e4ddcf;
+  --travertine-300: #d1c6b2;
+  --concrete-slate: #8b95a5;
+
+  /* Borders & Hairlines */
+  --border-hairline: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-gold: rgba(197, 160, 89, 0.35);
+  --border-gold-bright: #c5a059;
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #c7cbd3;
+  --text-muted: #8e97a6;
+  --text-dim: #5c6473;
+  --text-gold: #dfba73;
+
+  /* Status & Accents */
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-rose: #f43f5e;
+  --accent-rose-glow: rgba(244, 63, 94, 0.25);
+  --accent-cyan: #06b6d4;
+  --accent-amber: #f59e0b;
+
+  /* Spacings & Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7);
+  --shadow-gold: 0 0 25px rgba(197, 160, 89, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] {
+  --bg-app: #f7f6f2;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfbfa;
+  --bg-input: #f2eee8;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.75);
+  --bg-overlay: rgba(20, 24, 30, 0.7);
+
+  --border-hairline: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.14);
+  --border-gold: rgba(158, 125, 56, 0.4);
+  --border-gold-bright: #9e7d38;
+
+  --text-primary: #12151b;
+  --text-secondary: #3b424f;
+  --text-muted: #697282;
+  --text-dim: #9aa2b0;
+  --text-gold: #9e7d38;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
+  --shadow-gold: 0 0 20px rgba(197, 160, 89, 0.15);
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Scrollbar & Utilities
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-500);
+}
+
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md), var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--border-gold);
+  color: var(--text-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.pill-tag:hover, .pill-tag.active {
+  background: var(--gold-subtle);
+  border-color: var(--border-gold);
+  color: var(--text-gold);
+}
+
+/* ==========================================================================
+   Buttons & Inputs
+   ========================================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+  color: #0c0e12;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.3);
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-gold);
+  color: var(--text-gold);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-luxury {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.input-luxury:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+/* Custom Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold-400);
+  border: 2px solid #0c0e12;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+  transition: var(--transition-fast);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--gold-300);
+}
+
+/* ==========================================================================
+   Interactive Radar Hotspot Animations
+   ========================================================================== */
+
+@keyframes pulse-radar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 14px rgba(197, 160, 89, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+  }
+}
+
+.hotspot-radar {
+  animation: pulse-radar 2.2s infinite cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Modal & Overlay Animations
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ==========================================================================
+   Interactive 360 Canvas Styles
+   ========================================================================== */
+
+.panorama-viewport {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.panorama-viewport:active {
+  cursor: grabbing;
+}
+
+/* ==========================================================================
+   Responsive Layout Classes & Mobile Phone Adaptations
+   ========================================================================== */
+
+.haven-main-grid {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.hero-featured-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  min-height: 440px;
+}
+
+.hero-narrative {
+  padding: 40px;
+}
+
+.property-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.split-map-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.responsive-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.responsive-booking-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.responsive-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.haven-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile-filter-header {
+  display: none;
+}
+
+/* Mobile Breakpoint: Tablets & Phones (< 992px) */
+@media (max-width: 992px) {
+  .haven-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .hero-featured-grid {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .split-map-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .responsive-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .responsive-booking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .filter-sidebar-card {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .filter-sidebar-content {
+    display: none !important;
+  }
+
+  .filter-sidebar-content.mobile-expanded {
+    display: flex !important;
+  }
+}
+
+/* Mobile Breakpoint: Standard Mobile Phones (< 768px) */
+@media (max-width: 768px) {
+  .haven-nav-links {
+    display: none !important;
+  }
+
+  .hero-narrative {
+    padding: 24px 18px !important;
+  }
+
+  .responsive-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .modal-backdrop {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-content {
+    max-height: 90vh !important;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+    width: 100% !important;
+  }
+
+  .panorama-viewport {
+    height: 260px !important;
+  }
+
+  .mobile-filter-header {
+    display: flex !important;
+  }
+
+  /* Minimum 44px touch targets on mobile */
+  .btn-primary, .btn-secondary, .btn-ghost {
+    min-height: 44px;
+    padding: 10px 16px !important;
+  }
+
+  .pill-tag {
+    min-height: 40px;
+    padding: 8px 14px !important;
+    flex-shrink: 0;
+  }
+
+  /* Prevent iOS auto-zoom on inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Safe area padding */
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Blueprint canvas mobile constraint */
+  .blueprint-grid {
+    min-height: 320px !important;
+    padding: 12px !important;
+  }
+
+  /* Hotspot pin touch area */
+  .hotspot-radar {
+    inset: -12px !important;
+  }
+}
+
+/* Mobile Breakpoint: Narrow Mobile Phones (< 480px) */
+@media (max-width: 480px) {
+  .property-catalog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .hero-narrative {
+    padding: 18px 14px !important;
+  }
+
+  .calendar-days-grid button {
+    height: 44px !important;
+  }
+}

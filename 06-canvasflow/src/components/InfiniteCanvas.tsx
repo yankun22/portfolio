@@ -613,6 +613,7 @@ export const InfiniteCanvas: React.FC = () => {
         position: 'relative',
         overflow: 'hidden',
         cursor: isPanning ? 'grabbing' : activeTool === 'pan' ? 'grab' : activeTool === 'connector' ? 'crosshair' : 'default',
+        touchAction: 'none', // Prevent page scroll while drawing/panning on touch devices
       }}
     >
       {/* Infinite Scaled Dot Matrix Background */}

@@ -15,10 +15,11 @@ import { IncidentCard } from './components/IncidentCard';
 import {
   ArrowRight,
   Flame,
+  Command,
 } from 'lucide-react';
 
 const DashboardContent: React.FC = () => {
-  const { activeTab, setActiveTab, incidents } = useIncident();
+  const { activeTab, setActiveTab, incidents, setIsCommandPaletteOpen } = useIncident();
   const [isChaosOpen, setIsChaosOpen] = useState<boolean>(false);
   const [isDeclareOpen, setIsDeclareOpen] = useState<boolean>(false);
 
@@ -104,6 +105,16 @@ const DashboardContent: React.FC = () => {
       <CommandPalette />
       <ChaosControls isOpen={isChaosOpen} onClose={() => setIsChaosOpen(false)} />
       <DeclareIncidentModal isOpen={isDeclareOpen} onClose={() => setIsDeclareOpen(false)} />
+
+      {/* Mobile-only Command Palette FAB (⌘K replacement for touch screens) */}
+      <button
+        className="command-fab"
+        onClick={() => setIsCommandPaletteOpen(true)}
+        title="Open Command Palette"
+        aria-label="Open Command Palette"
+      >
+        <Command size={22} />
+      </button>
     </div>
   );
 };

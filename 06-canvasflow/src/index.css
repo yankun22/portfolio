@@ -295,6 +295,25 @@ body {
   .hud-glass[style*="bottom:14px"] {
     display: none !important;
   }
+
+  /* Canvas: prevent touch from scrolling the page */
+  canvas, svg.canvas-root {
+    touch-action: none !important;
+  }
+
+  /* Tool buttons: 44px minimum tap area */
+  .tool-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* Export modal: full screen on mobile */
+  .modal-overlay > div {
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    margin: 16px !important;
+    border-radius: 16px !important;
+  }
 }
 
 

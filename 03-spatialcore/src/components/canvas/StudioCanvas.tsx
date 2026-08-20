@@ -91,8 +91,12 @@ export const StudioCanvas: React.FC = () => {
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
     controls.minDistance = 2.0;
-    controls.maxDistance = 12.0;
+    controls.maxDistance = 8.0;  // Clamped for mobile to prevent zoom-out too far
     controls.maxPolarAngle = Math.PI / 2 + 0.05;
+    // On mobile, disable pan so single-finger can rotate without trapping scroll
+    if (window.innerWidth < 768) {
+      controls.enablePan = false;
+    }
     controlsRef.current = controls;
 
     // 5. Lighting Setup Group

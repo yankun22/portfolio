@@ -18,7 +18,7 @@ export const FxRack: React.FC = () => {
         </span>
       </div>
 
-      <div className="rack-body" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '16px' }}>
+      <div className="rack-body" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))', gap: '16px' }}>
         {/* 1. 3-Band Parametric EQ */}
         <ParametricEq />
 

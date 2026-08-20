@@ -90,6 +90,8 @@ body {
   max-width: 1600px;
   margin: 0 auto;
   padding: 24px 32px 64px 32px;
+  /* Prevent horizontal scroll on main content */
+  overflow-x: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -279,6 +281,9 @@ body {
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.15s ease;
+  /* Minimum 44×44 touch target */
+  min-width: 36px;
+  min-height: 36px;
 }
 
 .btn-icon:hover {
@@ -659,7 +664,7 @@ body {
   }
 
   .main-content {
-    padding: 10px 12px 48px 12px !important;
+    padding: 10px 12px 64px 12px !important;
     width: 100% !important;
   }
 
@@ -674,22 +679,71 @@ body {
   }
 
   .glass-card {
-    padding: 16px !important;
+    padding: 14px !important;
   }
 
   .modal-card {
-    padding: 18px;
+    padding: 16px;
     border-radius: var(--radius-lg);
+    max-height: 85vh;
   }
 
   .header-actions {
     flex-wrap: wrap;
   }
+
+  /* Minimum 44px touch targets on mobile */
+  .btn-icon {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  /* Make nav tabs scrollable horizontally */
+  .nav-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-tab-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    min-height: 40px;
+  }
+
+  /* Tables: prevent overflow */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @media (max-width: 480px) {
   .grid-4 {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .navbar-top {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px !important;
+  }
+
+  /* Hide preset selector label text on very small screens */
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  /* Show icons only on nav tabs at very small sizes */
+  .nav-label {
+    display: none;
   }
 }
 

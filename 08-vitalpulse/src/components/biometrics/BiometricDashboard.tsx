@@ -325,3 +325,4 @@ export const BiometricDashboard: React.FC<BiometricDashboardProps> = ({ record }
     </div>
   );
 };
+

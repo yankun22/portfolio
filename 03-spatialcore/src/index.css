@@ -401,15 +401,46 @@ body {
   }
 }
 
+/* Color swatches — horizontal scroll on mobile */
+.color-swatches-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .color-swatches-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .color-swatches-row::-webkit-scrollbar { display: none; }
+
+  /* Active swatches get a visible border */
+  .color-swatch.active {
+    outline: 2px solid #00f0ff;
+    outline-offset: 2px;
+  }
+}
+
 @media (max-width: 768px) {
   .studio-workspace {
     flex-direction: column !important;
     height: calc(100vh - 64px) !important;
   }
 
+  /* Give the 3D canvas exactly 45vh, and customizer takes the rest */
   .canvas-viewport {
     height: 45vh !important;
     flex: none !important;
+    /* Single-finger on canvas = orbit; ensure canvas element itself blocks scroll */
+  }
+
+  /* Canvas WebGL element touch behavior */
+  .canvas-viewport canvas {
+    touch-action: none;
   }
 
   .customizer-sidebar {
@@ -427,12 +458,27 @@ body {
   .modal-content-card {
     padding: 16px !important;
     border-radius: var(--radius-lg) !important;
+    max-height: 85vh;
+    overflow-y: auto;
   }
 
-  /* Camera and Studio floating controls on mobile */
-  .studio-toolbar-hud, .camera-view-bar {
-    transform: scale(0.85) translateX(-50%) !important;
-    transform-origin: top left !important;
+  /* Touch targets: spatial buttons */
+  .btn-spatial, .btn-pill {
+    min-height: 44px;
+  }
+
+  /* Studio floating controls on mobile */
+  .floating-hud-toolbar {
+    top: auto;
+    bottom: calc(55vh + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-x: auto;
+    max-width: calc(100vw - 24px);
+  }
+
+  .floating-camera-bar {
+    display: none;
   }
 }
 

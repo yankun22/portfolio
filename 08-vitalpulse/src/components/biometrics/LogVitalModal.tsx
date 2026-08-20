@@ -345,3 +345,4 @@ export const LogVitalModal: React.FC<LogVitalModalProps> = ({
     </Modal>
   );
 };
+

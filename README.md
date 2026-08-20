@@ -103,7 +103,15 @@ A showcase of production-grade, high-performance web applications built with **R
 - **Console Log Interceptor**: Injects a proxy script into the iframe that captures `console.log`, `console.warn`, `console.error`, and `console.table`, forwarding logs to an interactive docked developer console with filter levels and timestamps.
 - **Live Regex Engine & Railroad Visualizer**: Real-time regex testing with flags (`g`, `i`, `m`, `s`), color-coded capture group matching ($1, $2, $3), interactive SVG Railroad state-machine diagrams, token breakdown explainer, and substitution replace playground.
 - **In-Browser SQLite Studio**: Real in-memory SQLite database powered by WebAssembly (`sql.js`), featuring live table schema inspection, latency benchmark meter (`⚡ 1.24 ms`), tabular query results, and CSV/Markdown exports.
-- **Code Snippet Vault & Share**: Local snippet storage with search, tag filters, GitHub Gist JSON export, and shareable base64 URL permalinks.
+### 10. 🏛️ [HavenRealty (`10-havenrealty`)](./10-havenrealty)
+> **Architectural Real Estate, 360° Floor Plan Explorer, Dynamic Seasonal Booking & Mortgage Yield Engine**
+
+- **Interactive Floor Plan Explorer**: Multi-level architectural SVG blueprints with clickable room hotspots, pulsing radar pins, dimension markers, and an interactive 360° cylindrical canvas panorama viewer with diurnal lighting mood choreographies (Dawn, Midday, Golden Hour, Night).
+- **Dynamic Date Booking & Calendar**: Dual-month date-range calendar with real-time rate adjustments based on seasonality multipliers, guest count surcharges, cleaning fees, architectural preservation security deposits, and instant booking conflict prevention.
+- **Comprehensive Mortgage & Yield Calculator**: Real-time loan repayment engine with down payment %, interest rate sliders (tested across 3% to 7%), property taxes, HOA fees, interactive SVG Donut breakdown chart, Gross Rental Yield (%), Net Cap Rate (%), Cash-on-Cash Return (%), and yearly amortization progression schedules.
+- **Filterable Architectural Catalog & Coordinates Map**: Multi-criteria filtering by architectural style (Mid-Century Modern, Brutalist, Scandinavian, Minimalist, Organic Modernism, Bauhaus), purchase/nightly price ranges, and interactive geospatial radar coordinates map with popup preview cards.
+- **Virtual Tour Scheduler & Calendar Sync**: White-glove booking system for 4K live drone walkthroughs, private in-person visits, and architect consultations with dynamic RFC 5545 `.ics` calendar invitation file export.
+- **Curated Saved Residences & Comparison**: Slide-out drawer with side-by-side comparative matrices comparing price, yield, square footage (sq ft / m²), and signature materials across multiple currencies (USD, EUR, GBP, JPY, CAD).
 
 ---
 
@@ -112,8 +120,8 @@ A showcase of production-grade, high-performance web applications built with **R
 - **Core**: React 19, TypeScript, Vite 8, Pure Vanilla CSS Design Systems
 - **Database & Query Engines**: SQLite 3 WebAssembly (`sql.js`), AST Regex Parser Engine
 - **Biometric Telemetry & Visuals**: Custom SVG Interactive Time-Series Charts, AHA/ACC & ADA Medical Shading Corridors, Dynamic Semi-Circular SVG Gauges
-- **Maps & Geolocation**: Leaflet 1.9, OpenStreetMap Tiles, CartoDB Tiles, Haversine Engine
-- **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls)
+- **Maps & Geolocation**: Leaflet 1.9, OpenStreetMap Tiles, CartoDB Tiles, Haversine Engine, Vector Geospatial Projections
+- **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls), HTML5 Cylindrical 360° Canvas Viewers
 - **Audio DSP & Synthesis**: Web Audio API, Wavesurfer.js v7, OfflineAudioContext
 - **Knowledge Graphs & Diagramming**: D3.js (Force-Directed Simulation), Hardware-Accelerated Infinite SVG/Canvas, Chart.js, HTML5 Canvas 60fps Analysers
 - **Drag-and-Drop & Utilities**: `@dnd-kit/core`, `@dnd-kit/sortable`, KaTeX, JSZip, jsPDF, jspdf-autotable, Canvas-Confetti, Lucide React, Oxlint
@@ -153,5 +161,8 @@ cd ../08-vitalpulse && npm install && npm run dev
 
 # Run 09-CodeForge
 cd ../09-codeforge && npm install && npm run dev
+
+# Run 10-HavenRealty
+cd ../10-havenrealty && npm install && npm run dev
 ```
 

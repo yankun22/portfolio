@@ -134,7 +134,7 @@ export const FanChart: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ width: '100%', height: 380 }}>
+      <div style={{ width: '100%', height: 'clamp(260px, 40vw, 420px)' }}>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={mcResults.yearlyData}

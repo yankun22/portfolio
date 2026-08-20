@@ -62,6 +62,10 @@ export const KnowledgeGraph: React.FC = () => {
       })
       .map((l) => ({ ...l }));
 
+    // Adapt simulation parameters for mobile screens
+    const isMobile = window.innerWidth < 768;
+    const mobileScale = isMobile ? 0.65 : 1;
+
     // Setup D3 Force Simulation
     const simulation = d3
       .forceSimulation<GraphNode>(activeNodes)
@@ -70,10 +74,10 @@ export const KnowledgeGraph: React.FC = () => {
         d3
           .forceLink<GraphNode, GraphLink>(activeLinks)
           .id((d) => d.id)
-          .distance(physicsSettings.linkDistance)
+          .distance(physicsSettings.linkDistance * mobileScale)
       )
-      .force('charge', d3.forceManyBody().strength(physicsSettings.chargeStrength))
-      .force('collide', d3.forceCollide().radius((d: any) => (d.radius || 6) + physicsSettings.collisionRadius * 0.4))
+      .force('charge', d3.forceManyBody().strength(physicsSettings.chargeStrength * mobileScale))
+      .force('collide', d3.forceCollide().radius((d: any) => ((d.radius || 6) * mobileScale) + physicsSettings.collisionRadius * 0.4))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .alphaDecay(0.028);
 

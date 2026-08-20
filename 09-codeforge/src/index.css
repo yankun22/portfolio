@@ -609,6 +609,29 @@ html, body, #root {
   .sandbox-workspace.split-horizontal {
     flex-direction: column;
   }
+  /* Also stack vertically-split workspaces on mobile */
+  .sandbox-workspace.split-vertical {
+    flex-direction: column;
+  }
+  /* Ensure editor panels fill 50% each */
+  .sandbox-workspace .editor-pane,
+  .sandbox-workspace .preview-pane {
+    flex: 1 !important;
+    min-height: 240px !important;
+    max-height: 50vh !important;
+  }
+  /* Console drawer: smaller on mobile */
+  .console-drawer {
+    max-height: 35vh !important;
+  }
+  /* Regex studio: wrap panels */
+  .regex-studio-layout {
+    flex-direction: column !important;
+  }
+  /* SQL studio: wrap panels */
+  .sql-studio-layout {
+    flex-direction: column !important;
+  }
 }
 
 .mobile-bottom-nav {
@@ -646,9 +669,26 @@ html, body, #root {
     font-weight: 700;
     cursor: pointer;
     flex: 1;
+    /* 44px touch target */
+    min-height: 44px;
   }
 
   .mobile-bottom-btn.active {
     color: var(--accent-cyan);
+  }
+
+  /* Prevent iOS auto-zoom on inputs and editors */
+  input, textarea, .cm-editor {
+    font-size: 16px !important;
+  }
+
+  /* Run/Share buttons: ensure 44px */
+  .btn, .btn-primary, .btn-sm {
+    min-height: 44px;
+  }
+
+  /* Main content: add bottom padding for nav */
+  .main-content {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom)) !important;
   }
 }

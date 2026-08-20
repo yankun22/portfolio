@@ -10,7 +10,7 @@ export const GlucoseChart: React.FC<GlucoseChartProps> = ({ readings }) => {
 
   if (readings.length === 0) {
     return (
-      <div style={{ height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
+      <div style={{ height: 'clamp(180px, 35vw, 240px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
         No glucose telemetry logged for this period.
       </div>
     );
@@ -229,3 +229,4 @@ export const GlucoseChart: React.FC<GlucoseChartProps> = ({ readings }) => {
     </div>
   );
 };
+

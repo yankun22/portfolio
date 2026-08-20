@@ -492,6 +492,20 @@ body {
   .mobile-nav-btn.active svg {
     filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6));
   }
+
+  /* 44px touch targets */
+  .mobile-nav-btn {
+    min-height: 44px;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  /* Sidebar note rows: bigger tap targets */
+  .note-row-btn {
+    min-height: 44px;
+  }
 }
 
 

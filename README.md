@@ -96,9 +96,21 @@ A showcase of production-grade, high-performance web applications built with **R
 
 ---
 
+### 9. ⚡ [CodeForge (`09-codeforge`)](./09-codeforge)
+> **Interactive Developer Playground, Regex Railroad Visualizer & In-Browser SQLite Studio**
+
+- **Multi-Tab Code Sandbox**: Live HTML/CSS/JavaScript multi-tab editor with sandboxed iframe preview, layout toggles (Split Horizontal, Split Vertical, Full Editor, Full Preview), and pre-loaded starter templates.
+- **Console Log Interceptor**: Injects a proxy script into the iframe that captures `console.log`, `console.warn`, `console.error`, and `console.table`, forwarding logs to an interactive docked developer console with filter levels and timestamps.
+- **Live Regex Engine & Railroad Visualizer**: Real-time regex testing with flags (`g`, `i`, `m`, `s`), color-coded capture group matching ($1, $2, $3), interactive SVG Railroad state-machine diagrams, token breakdown explainer, and substitution replace playground.
+- **In-Browser SQLite Studio**: Real in-memory SQLite database powered by WebAssembly (`sql.js`), featuring live table schema inspection, latency benchmark meter (`⚡ 1.24 ms`), tabular query results, and CSV/Markdown exports.
+- **Code Snippet Vault & Share**: Local snippet storage with search, tag filters, GitHub Gist JSON export, and shareable base64 URL permalinks.
+
+---
+
 ## 🛠️ Tech Stack Overview
 
 - **Core**: React 19, TypeScript, Vite 8, Pure Vanilla CSS Design Systems
+- **Database & Query Engines**: SQLite 3 WebAssembly (`sql.js`), AST Regex Parser Engine
 - **Biometric Telemetry & Visuals**: Custom SVG Interactive Time-Series Charts, AHA/ACC & ADA Medical Shading Corridors, Dynamic Semi-Circular SVG Gauges
 - **Maps & Geolocation**: Leaflet 1.9, OpenStreetMap Tiles, CartoDB Tiles, Haversine Engine
 - **3D Graphics & Physics**: Three.js (PBR Shaders, PCF Shadows, OrbitControls)
@@ -138,5 +150,8 @@ cd ../07-voyageplanner && npm install && npm run dev
 
 # Run 08-VitalPulse
 cd ../08-vitalpulse && npm install && npm run dev
+
+# Run 09-CodeForge
+cd ../09-codeforge && npm install && npm run dev
 ```
 

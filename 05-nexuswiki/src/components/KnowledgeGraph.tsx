@@ -94,7 +94,7 @@ export const KnowledgeGraph: React.FC = () => {
       .data(activeLinks)
       .enter()
       .append('line')
-      .attr('stroke', 'rgba(139, 92, 246, 0.35)')
+      .attr('stroke', 'rgba(212, 175, 55, 0.3)')
       .attr('stroke-width', 1.5)
       .attr('stroke-linecap', 'round');
 
@@ -131,18 +131,18 @@ export const KnowledgeGraph: React.FC = () => {
       .append('circle')
       .attr('r', (d) => (d.radius || 6) + 4)
       .attr('fill', 'transparent')
-      .attr('stroke', (d) => (d.id === activeNoteId ? '#38bdf8' : d.isGhost ? '#64748b' : d.color || '#8b5cf6'))
+      .attr('stroke', (d) => (d.id === activeNoteId ? '#d4af37' : d.isGhost ? '#52525b' : d.color || '#e5c07b'))
       .attr('stroke-width', (d) => (d.id === activeNoteId ? 2 : 1))
-      .attr('stroke-opacity', (d) => (d.id === activeNoteId ? 0.9 : 0.3))
+      .attr('stroke-opacity', (d) => (d.id === activeNoteId ? 0.95 : 0.35))
       .attr('stroke-dasharray', (d) => (d.isGhost ? '3 3' : 'none'));
 
     // Node core circle
     node
       .append('circle')
       .attr('r', (d) => d.radius || 6)
-      .attr('fill', (d) => (d.isGhost ? '#1e293b' : d.id === activeNoteId ? '#38bdf8' : d.color || '#8b5cf6'))
+      .attr('fill', (d) => (d.isGhost ? '#18181b' : d.id === activeNoteId ? '#d4af37' : d.color || '#e5c07b'))
       .attr('filter', (d) => (d.id === activeNoteId || d.degree >= 3 ? 'url(#node-glow)' : 'none'))
-      .attr('stroke', '#080c14')
+      .attr('stroke', '#060709')
       .attr('stroke-width', 1.5);
 
     // Node Labels
@@ -151,7 +151,7 @@ export const KnowledgeGraph: React.FC = () => {
       .text((d) => d.title)
       .attr('x', (d) => (d.radius || 6) + 6)
       .attr('y', 4)
-      .attr('fill', (d) => (d.id === activeNoteId ? '#ffffff' : '#cbd5e1'))
+      .attr('fill', (d) => (d.id === activeNoteId ? '#ffffff' : '#a1a1aa'))
       .attr('font-size', (d) => (d.id === activeNoteId ? '11px' : '9.5px'))
       .attr('font-family', 'Plus Jakarta Sans, sans-serif')
       .attr('font-weight', (d) => (d.id === activeNoteId ? 700 : 500))

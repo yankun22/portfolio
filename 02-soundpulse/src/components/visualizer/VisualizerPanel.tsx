@@ -49,7 +49,7 @@ export const VisualizerPanel: React.FC = () => {
         analyser.getByteTimeDomainData(timeData);
 
         // Center line
-        ctx.strokeStyle = 'rgba(6, 182, 212, 0.15)';
+        ctx.strokeStyle = 'rgba(212, 175, 55, 0.15)';
         ctx.beginPath();
         ctx.moveTo(0, height / 2);
         ctx.lineTo(width, height / 2);
@@ -57,8 +57,8 @@ export const VisualizerPanel: React.FC = () => {
 
         // Waveform
         ctx.lineWidth = 2.5;
-        ctx.strokeStyle = '#22d3ee';
-        ctx.shadowColor = '#06b6d4';
+        ctx.strokeStyle = '#d4af37';
+        ctx.shadowColor = '#e5c07b';
         ctx.shadowBlur = 10;
         ctx.beginPath();
 
@@ -105,10 +105,10 @@ export const VisualizerPanel: React.FC = () => {
 
           // Gradient bar
           const grad = ctx.createLinearGradient(0, height, 0, 0);
-          grad.addColorStop(0, '#06b6d4');
-          grad.addColorStop(0.5, '#10b981');
+          grad.addColorStop(0, '#10b981');
+          grad.addColorStop(0.5, '#d4af37');
           grad.addColorStop(0.8, '#f59e0b');
-          grad.addColorStop(1, '#ec4899');
+          grad.addColorStop(1, '#ef4444');
 
           ctx.fillStyle = grad;
           ctx.fillRect(x, y, barWidth, barHeight);
@@ -137,9 +137,9 @@ export const VisualizerPanel: React.FC = () => {
         // --- 3. PHASE / LISSAJOUS VECTOR SCOPE ---
         analyser.getByteTimeDomainData(timeData);
 
-        ctx.strokeStyle = '#ec4899';
+        ctx.strokeStyle = '#d4af37';
         ctx.lineWidth = 1.8;
-        ctx.shadowColor = '#f472b6';
+        ctx.shadowColor = '#e5c07b';
         ctx.shadowBlur = 8;
         ctx.beginPath();
 
@@ -173,7 +173,7 @@ export const VisualizerPanel: React.FC = () => {
     <div className="rack-chassis">
       <div className="rack-header">
         <h2 className="rack-title">
-          <Radio size={18} color="#22d3ee" />
+          <Radio size={18} color="#d4af37" />
           <span>Real-Time 60fps Oscilloscope & Spectrum Analyzer</span>
         </h2>
 

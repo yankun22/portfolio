@@ -104,8 +104,8 @@ export function calculateFireMilestones(params: FireParams): FireCalculationResu
       description: `Investments alone will compound to your full Traditional FIRE number ($${Math.round(traditionalTarget).toLocaleString()}) by age ${targetRetirementAge} without adding another penny.`,
       monthlySafeWithdrawal: Math.round((traditionalTarget * swrFactor) / 12),
       annualSafeWithdrawal: Math.round(traditionalTarget * swrFactor),
-      color: '#06b6d4',
-      gradient: 'linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)',
+      color: '#d4af37',
+      gradient: 'linear-gradient(135deg, #e5c07b 0%, #d4af37 100%)',
     },
     lean: {
       id: 'lean',
@@ -121,7 +121,7 @@ export function calculateFireMilestones(params: FireParams): FireCalculationResu
       monthlySafeWithdrawal: Math.round(leanAnnualSpending / 12),
       annualSafeWithdrawal: Math.round(leanAnnualSpending),
       color: '#10b981',
-      gradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+      gradient: 'linear-gradient(135deg, #34d399 0%, #059669 100%)',
     },
     barista: {
       id: 'barista',
@@ -137,7 +137,7 @@ export function calculateFireMilestones(params: FireParams): FireCalculationResu
       monthlySafeWithdrawal: Math.round((annualSpending * 0.5) / 12),
       annualSafeWithdrawal: Math.round(annualSpending * 0.5),
       color: '#f59e0b',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+      gradient: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
     },
     traditional: {
       id: 'traditional',
@@ -152,8 +152,8 @@ export function calculateFireMilestones(params: FireParams): FireCalculationResu
       description: `100% financial freedom at your current desired lifestyle ($${annualSpending.toLocaleString()}/yr) with a perpetual ${safeWithdrawalRate}% safe withdrawal rate.`,
       monthlySafeWithdrawal: Math.round(annualSpending / 12),
       annualSafeWithdrawal: Math.round(annualSpending),
-      color: '#8b5cf6',
-      gradient: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+      color: '#e2e8f0',
+      gradient: 'linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%)',
     },
     fat: {
       id: 'fat',
@@ -168,8 +168,8 @@ export function calculateFireMilestones(params: FireParams): FireCalculationResu
       description: `Uncompromised luxury retirement ($${fatAnnualSpending.toLocaleString()}/yr) with extensive travel, gifting, and premium healthcare buffers.`,
       monthlySafeWithdrawal: Math.round(fatAnnualSpending / 12),
       annualSafeWithdrawal: Math.round(fatAnnualSpending),
-      color: '#ec4899',
-      gradient: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)',
+      color: '#f43f5e',
+      gradient: 'linear-gradient(135deg, #fb7185 0%, #e11d48 100%)',
     },
   };
 

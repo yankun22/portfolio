@@ -4,37 +4,37 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Color Palette - Dark Mode (Default) */
-  --bg-app: #0b0f17;
-  --bg-card: rgba(18, 24, 38, 0.85);
-  --bg-card-hover: rgba(26, 35, 54, 0.95);
-  --bg-card-solid: #121826;
-  --bg-secondary: #161f30;
-  --bg-elevated: #1e293b;
-  --bg-input: #0f1523;
-  --bg-glass: rgba(18, 24, 38, 0.65);
+  --bg-app: #07080a;
+  --bg-card: rgba(14, 16, 22, 0.88);
+  --bg-card-hover: rgba(20, 24, 32, 0.95);
+  --bg-card-solid: #0d0f14;
+  --bg-secondary: #12141a;
+  --bg-elevated: #181a22;
+  --bg-input: #090a0d;
+  --bg-glass: rgba(14, 16, 22, 0.75);
   
   --border-subtle: rgba(255, 255, 255, 0.07);
   --border-medium: rgba(255, 255, 255, 0.14);
-  --border-focus: #3b82f6;
+  --border-focus: #d4af37;
 
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-dim: #475569;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-dim: #3f3f46;
 
   /* Brand & Status Accents */
-  --accent-primary: #3b82f6;
-  --accent-primary-hover: #2563eb;
-  --accent-primary-glow: rgba(59, 130, 246, 0.25);
+  --accent-primary: #d4af37;
+  --accent-primary-hover: #e5c07b;
+  --accent-primary-glow: rgba(212, 175, 55, 0.25);
   
   --accent-emerald: #10b981;
   --accent-emerald-glow: rgba(16, 185, 129, 0.2);
   --accent-amber: #f59e0b;
   --accent-amber-glow: rgba(245, 158, 11, 0.2);
   --accent-rose: #f43f5e;
-  --accent-purple: #8b5cf6;
-  --accent-cyan: #06b6d4;
-  --accent-indigo: #6366f1;
+  --accent-terracotta: #ea580c;
+  --accent-gold: #d4af37;
+  --accent-titanium: #f9fafb;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -42,9 +42,9 @@
   --radius-xl: 20px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.7);
   --shadow-glow: 0 0 25px -5px var(--accent-primary-glow);
 
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,16 +63,16 @@
 
   --border-subtle: rgba(0, 0, 0, 0.08);
   --border-medium: rgba(0, 0, 0, 0.15);
-  --border-focus: #2563eb;
+  --border-focus: #d4af37;
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
   --text-dim: #94a3b8;
 
-  --accent-primary: #2563eb;
-  --accent-primary-hover: #1d4ed8;
-  --accent-primary-glow: rgba(37, 99, 235, 0.15);
+  --accent-primary: #d4af37;
+  --accent-primary-hover: #b89628;
+  --accent-primary-glow: rgba(212, 175, 55, 0.15);
 
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 14px 0 rgba(0, 0, 0, 0.08);
@@ -118,13 +118,13 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height: avoids iOS Safari URL bar issues */
+  height: 100dvh;
   width: 100vw;
   overflow: hidden;
-  background: radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.06) 0%, transparent 40%),
-              radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+  background: radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 85% 85%, rgba(234, 88, 12, 0.04) 0%, transparent 40%),
               var(--bg-app);
-  -webkit-tap-highlight-color: transparent; /* Remove tap flashes on mobile */
+  -webkit-tap-highlight-color: transparent;
   touch-action: pan-y;
 }
 
@@ -162,12 +162,12 @@ html, body, #root {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #d4af37 0%, #ea580c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+  color: #07080a;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
 }
 
 .brand-title {
@@ -175,14 +175,14 @@ html, body, #root {
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+  background: linear-gradient(135deg, #ffffff 30%, #e5c07b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 [data-theme='light'] .brand-title {
-  background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
+  background: linear-gradient(135deg, #0f172a 30%, #d4af37 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

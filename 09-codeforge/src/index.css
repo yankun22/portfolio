@@ -4,31 +4,32 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
 
   /* Developer Dark IDE Theme (Default) */
-  --bg-app: #060709;
-  --bg-surface: #0a0c10;
-  --bg-card: #0e1015;
-  --bg-card-hover: #141720;
-  --bg-input: #08090d;
-  --bg-editor: #08090d;
-  --bg-preview: #060709;
-  --bg-glass: rgba(10, 12, 16, 0.88);
+  --bg-app: #060708;
+  --bg-surface: #0a0c0f;
+  --bg-card: #0f1216;
+  --bg-card-hover: #151920;
+  --bg-input: #08090c;
+  --bg-editor: #08090c;
+  --bg-preview: #060708;
+  --bg-glass: rgba(10, 12, 15, 0.88);
 
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-focus: #d4af37;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-focus: #f59e0b;
 
   --text-primary: #f8fafc;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --text-dim: #3f3f46;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
 
   /* Accents */
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
   --accent-gold: #d4af37;
-  --accent-gold-glow: rgba(212, 175, 55, 0.25);
   --accent-emerald: #10b981;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
-  --accent-titanium: #f9fafb;
+  --accent-emerald: #10b981;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -36,9 +37,9 @@
   --radius-xl: 20px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.55);
-  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.75);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.6);
 
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -56,7 +57,7 @@
 
   --border-subtle: rgba(0, 0, 0, 0.08);
   --border-medium: rgba(0, 0, 0, 0.16);
-  --border-focus: #d4af37;
+  --border-focus: #0284c7;
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -137,12 +138,12 @@ html, body, #root {
   width: 34px;
   height: 34px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #e5c07b 0%, #d4af37 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #060709;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.35);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
 }
 
 .brand-title {
@@ -184,10 +185,9 @@ html, body, #root {
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, #e5c07b 0%, #d4af37 100%);
-  color: #060709;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
 }
 
 /* Buttons */
@@ -197,18 +197,18 @@ html, body, #root {
   gap: 6px;
   padding: 7px 14px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #e5c07b 0%, #d4af37 100%);
-  color: #060709;
-  font-weight: 700;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
   border: none;
   font-size: 0.8125rem;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition-fast);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #f5e6b8 0%, #e5c07b 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
   transform: translateY(-1px);
 }
 

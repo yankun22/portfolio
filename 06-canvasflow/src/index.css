@@ -1,37 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-app: #060709;
-  --bg-canvas: #08080b;
-  --bg-toolbar: rgba(14, 15, 20, 0.92);
-  --bg-card: rgba(16, 18, 24, 0.95);
+  --bg-canvas: #090a0d;
+  --bg-toolbar: rgba(14, 16, 22, 0.88);
+  --bg-card: rgba(18, 21, 28, 0.95);
   --bg-input: #060709;
-  --bg-overlay: rgba(5, 6, 8, 0.88);
+  --bg-overlay: rgba(5, 8, 14, 0.8);
 
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-active: #d4af37;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-active: #e5c07b;
 
   --text-primary: #f8fafc;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --text-dim: #3f3f46;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
 
-  --color-gold: #d4af37;
+  --color-solar-gold: #e5c07b;
   --color-amber: #f59e0b;
   --color-emerald: #10b981;
+  --color-amber: #f59e0b;
   --color-rose: #f43f5e;
-  --color-titanium: #f9fafb;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
 
-  --shadow-hud: 0 16px 48px rgba(0, 0, 0, 0.75), 0 0 24px rgba(212, 175, 55, 0.15);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.65);
+  --shadow-hud: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 24px rgba(229, 192, 123, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
 
-  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -79,13 +79,13 @@ body {
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease;
   user-select: none;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.09);
   border-color: var(--border-medium);
   transform: translateY(-1px);
 }
@@ -96,35 +96,30 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, #e5c07b 0%, #d4af37 100%);
-  border-color: rgba(212, 175, 55, 0.4);
-  color: #0b0c0d;
-  font-weight: 700;
-  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
+  border-color: rgba(229, 192, 123, 0.4);
+  color: #ffffff;
 }
-
 .btn-primary:hover {
   background: linear-gradient(135deg, #f5e6b8 0%, #e5c07b 100%);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 16px rgba(229, 192, 123, 0.4);
 }
 
 .btn-sm {
-  padding: 5px 9px;
-  font-size: 0.75rem;
+  padding: 5px 10px;
+  font-size: 0.775rem;
   border-radius: var(--radius-sm);
 }
 
 .btn-icon {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border-radius: var(--radius-md);
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-secondary);
-  cursor: pointer;
   transition: all 0.15s ease;
 }
 
@@ -134,55 +129,191 @@ body {
 }
 
 .btn-icon.active {
-  color: #d4af37;
-  background: rgba(212, 175, 55, 0.2);
-  border-color: rgba(212, 175, 55, 0.4);
+  color: #e5c07b;
+  background: rgba(229, 192, 123, 0.2);
 }
 
-/* Tool Item in Floating Dock */
-.dock-tool-btn {
-  position: relative;
+/* Tool Buttons in Floating Toolbar */
+.tool-btn {
+  width: 38px;
+  height: 38px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s ease;
 }
 
-.dock-tool-btn:hover {
+.tool-btn:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
 }
 
-.dock-tool-btn.active {
-  background: rgba(212, 175, 55, 0.22);
-  color: #d4af37;
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+.tool-btn.active {
+  background: rgba(229, 192, 123, 0.22);
+  color: #e5c07b;
+  border-color: rgba(229, 192, 123, 0.4);
+  box-shadow: 0 0 12px rgba(229, 192, 123, 0.3);
 }
 
-/* Selection bounding box handles */
-.selection-handle {
+/* Magnetic Anchor Port Rings */
+.anchor-port {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e5c07b;
+  border: 2px solid #080b12;
   position: absolute;
-  width: 9px;
-  height: 9px;
-  background: #d4af37;
-  border: 2px solid #060709;
+  transform: translate(-50%, -50%);
+  cursor: crosshair;
+  z-index: 50;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.anchor-port:hover,
+.anchor-port.active {
+  transform: translate(-50%, -50%) scale(1.4);
+  box-shadow: 0 0 10px #e5c07b;
+}
+
+/* Resize Handles */
+.resize-handle {
+  width: 8px;
+  height: 8px;
+  background: #e5c07b;
+  border: 1px solid #080b12;
   border-radius: 2px;
-  pointer-events: auto;
-  cursor: pointer;
+  position: absolute;
+  z-index: 40;
+}
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-dialog {
+  animation: modalScaleIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.properties-panel-dock {
+  position: absolute;
+  top: 144px;
+  left: 14px;
+  width: 210px;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 90;
+}
+
+.floating-toolbar-dock {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   z-index: 100;
 }
 
-.selection-box-border {
-  border: 1.5px solid #d4af37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+.mobile-only-close {
+  display: none !important;
 }
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .mobile-only-close {
+    display: inline-flex !important;
+  }
+
+  header.hud-glass {
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    padding: 0 10px !important;
+    height: 48px !important;
+  }
+
+  header.hud-glass input {
+    display: none !important;
+  }
+
+  .floating-toolbar-dock {
+    top: auto !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 96vw !important;
+    overflow-x: auto !important;
+    padding: 4px 6px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .properties-panel-dock {
+    top: auto !important;
+    bottom: 64px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    max-height: 50vh !important;
+    overflow-y: auto !important;
+    border-radius: 16px !important;
+    z-index: 150 !important;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .hud-glass[style*="bottom: 14px"],
+  .hud-glass[style*="bottom:14px"] {
+    display: none !important;
+  }
+
+  /* Canvas: prevent touch from scrolling the page */
+  canvas, svg.canvas-root {
+    touch-action: none !important;
+  }
+
+  /* Tool buttons: 44px minimum tap area */
+  .tool-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* Export modal: full screen on mobile */
+  .modal-overlay > div {
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    margin: 16px !important;
+    border-radius: 16px !important;
+  }
+}
+
+

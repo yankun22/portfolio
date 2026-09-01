@@ -1,0 +1,46 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/01-wealthflow"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/02-soundpulse"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/03-spatialcore"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/04-incidentpulse"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/05-nexuswiki"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/06-canvasflow"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/07-voyageplanner"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/08-vitalpulse"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/09-codeforge"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/10-havenrealty"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

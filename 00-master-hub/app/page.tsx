@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { displayProvenanceWatermark } from './watermark';
 import { 
   ArrowRight, 
   FileDown, 
@@ -50,6 +51,10 @@ export default function MasterHubPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  useEffect(() => {
+    displayProvenanceWatermark('Alok Vishwakarma Master Architecture Hub');
+  }, []);
 
   const filteredProjects = PROJECTS.filter((project) => {
     const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory;
@@ -101,7 +106,7 @@ export default function MasterHubPage() {
               <Linkedin className="w-4 h-4" />
             </a>
             <a
-              href="mailto:alokvishwa1998@gmail.com"
+              href="mailto:contact@alokvishwastudio.in"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-all shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
@@ -149,7 +154,7 @@ export default function MasterHubPage() {
             <ArrowRight className="w-4 h-4" />
           </a>
           <a
-            href="mailto:alokvishwa1998@gmail.com"
+            href="mailto:contact@alokvishwastudio.in"
             className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-white/10 hover:border-white/25 text-zinc-200 bg-white/[0.02] hover:bg-white/[0.05] font-medium text-sm backdrop-blur-2xl transition-all"
           >
             <Mail className="w-4 h-4 text-zinc-400" />
@@ -232,7 +237,7 @@ export default function MasterHubPage() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
               placeholder="Search 15 deployments..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.015] border border-white/[0.07] text-sm text-[#f9fafb] placeholder:text-zinc-600 focus:outline-none focus:border-amber-400/40"
             />

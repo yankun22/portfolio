@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { 
   Cinzel, 
   Italiana, 
@@ -51,12 +51,15 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#050505',
+};
+
 export const metadata: Metadata = {
   title: 'Alok Vishwakarma — Principal Full-Stack Web Architect & Creative Technologist',
   description: 'An exclusive digital gallery of 15 live production systems engineered by Alok Vishwakarma across Web3D, In-Browser WASM Databases, Web Audio DAW, and High-Impact Enterprise Architecture.',
   keywords: ['Alok Vishwakarma', 'Principal Web Architect', 'Creative Technologist', 'Three.js', 'WebGL', 'Next.js', 'Web Audio API', 'WASM', 'React', 'TypeScript', 'Vercel'],
   authors: [{ name: 'Alok Vishwakarma' }],
-  themeColor: '#050505',
   openGraph: {
     title: 'Alok Vishwakarma — Principal Full-Stack Web Architect',
     description: 'Exhibition of 15 live production web applications spanning Web3D, Fintech, Developer Tooling, and Enterprise Systems.',

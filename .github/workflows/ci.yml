@@ -1,0 +1,53 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint & Build Architecture Suite
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project:
+          - 01-wealthflow
+          - 02-soundpulse
+          - 03-spatialcore
+          - 04-incidentpulse
+          - 05-nexuswiki
+          - 06-canvasflow
+          - 07-voyageplanner
+          - 08-vitalpulse
+          - 09-codeforge
+          - 10-havenrealty
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: ${{ matrix.project }}/package.json
+
+      - name: Install Project Dependencies
+        working-directory: ${{ matrix.project }}
+        run: npm ci
+
+      - name: Run Linter (oxlint)
+        working-directory: ${{ matrix.project }}
+        run: npm run lint
+
+      - name: Production TypeScript Build
+        working-directory: ${{ matrix.project }}
+        run: npm run build

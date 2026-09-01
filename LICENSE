@@ -1,0 +1,91 @@
+SHOWCASE AND ARCHITECTURAL EVALUATION LICENSE
+ALL RIGHTS RESERVED — COMMERCIAL USE STRICTLY PROHIBITED
+
+Copyright (c) 2024-2026 Alok Vishwakarma. All Rights Reserved.
+Repository: https://github.com/yankun22/portfolio
+Contact: contact@alokvishwastudio.in
+
+================================================================================
+1. GRANT OF EVALUATION LICENSE
+================================================================================
+Subject to the terms and conditions of this Agreement, the author and copyright
+holder ("Alok Vishwakarma") hereby grants you a limited, revocable, personal, 
+non-exclusive, non-transferable, and non-sublicensable license to:
+
+  (a) View, read, and inspect the source code in this repository strictly for
+      personal architectural review, recruitment assessment, technical evaluation,
+      or prospective client contract due diligence; and
+
+  (b) Clone and execute the code locally on a private development workstation 
+      solely for the evaluation purposes described in subsection (a).
+
+================================================================================
+2. STRICT PROHIBITIONS & RESERVATION OF RIGHTS
+================================================================================
+All rights, title, interest, and intellectual property in and to this software,
+including but not limited to source code, algorithms (including stochastic Monte 
+Carlo simulation models, Web Audio DSP filter configurations, 3D WebGL procedural
+shaders, AST regex parsers, and vector canvas matrix transformations), user
+interface designs, graphic styling, trade dress, sound design, and documentation,
+are and remain the exclusive property of Alok Vishwakarma.
+
+YOU ARE STRICTLY PROHIBITED FROM:
+
+  (a) COMMERCIAL EXPLOITATION: Deploying, hosting, selling, renting, leasing, 
+      sublicensing, whitelabeling, or otherwise commercially exploiting this 
+      software, any component thereof, or any derivative work;
+
+  (b) PUBLIC HOSTING & MIRRORING: Publishing, hosting, or serving the compiled 
+      artifacts or source code on any public web server, cloud host (e.g., 
+      Vercel, Netlify, AWS, Cloudflare, GitHub Pages), or intranet accessible 
+      beyond private evaluation;
+
+  (c) CODE THEFT & REDISTRIBUTION: Copying, modifying, republishing, distributing,
+      or incorporating any portion of this codebase into public or private 
+      repositories, software libraries, commercial applications, or client 
+      deliverables without express written authorization;
+
+  (d) REMOVAL OF PROVENANCE: Removing, altering, obscuring, or tampering with any 
+      copyright notices, author attribution, console watermarks, provenance 
+      banners, or license files in any source or bundled file;
+
+  (e) AI / MACHINE LEARNING TRAINING: Ingesting, scraping, or utilizing this 
+      codebase or design assets to train generative artificial intelligence, 
+      code synthesis models, or automated design generators without explicit 
+      written consent.
+
+================================================================================
+3. ENFORCEMENT & DMCA REMEDIES
+================================================================================
+Any unauthorized copying, mirroring, deployment, or commercial use constitutes
+willful copyright infringement and a breach of this license agreement.
+
+The copyright holder actively monitors deployments and enforces intellectual 
+property rights through:
+  - Immediate Digital Millennium Copyright Act (DMCA) takedown notices issued 
+    to web hosts, code repositories, domain registrars, and cloud providers;
+  - Formal legal injunctive relief and statutory damages under applicable 
+    copyright laws;
+  - Reporting of unauthorized contract deliverables to affected commercial 
+    counterparties.
+
+================================================================================
+4. COMMERCIAL COMMISSIONS & LICENSING INQUIRIES
+================================================================================
+If you or your organization wish to license components from this repository,
+commission bespoke architectural modules, or retain Alok Vishwakarma for custom
+engineering or advisory contracts, please submit a formal inquiry via:
+
+  - Email: contact@alokvishwastudio.in
+  - LinkedIn: https://www.linkedin.com/in/alokvishwa-studio
+  - GitHub: https://github.com/yankun22
+
+================================================================================
+5. DISCLAIMER OF WARRANTY
+================================================================================
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS 
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR OR 
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

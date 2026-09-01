@@ -1,18 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { Compass } from 'lucide-react';
 import {
-  Compass,
-  Heart,
-  Sliders,
-  Eye,
-  Calendar,
-  Sparkles,
-  TrendingUp,
-  Layers,
-  ArrowUp,
-  MapPin
-} from 'lucide-react';
-import {
-  ArchitecturalStyle,
   CurrencyCode,
   FilterState,
   Property,

@@ -1,0 +1,74 @@
+name: 💼 Client Commission & Architecture Inquiry
+description: Inquire about retaining Alok Vishwakarma for custom engineering, architecture, or private commissions.
+title: "[COMMISSION]: <Project Name or Objective>"
+labels: ["client-inquiry", "commission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Welcome to Alok Vishwakarma's Architectural Commission Portal
+        Thank you for your interest in retaining my engineering services or commissioning custom web architecture.
+        Please fill out the scope details below, or reach out directly at **[contact@alokvishwastudio.in](mailto:contact@alokvishwastudio.in)** for private / confidential discussions.
+
+  - type: input
+    id: organization
+    attributes:
+      label: Organization / Company Name
+      description: Your company, startup, or private entity name.
+      placeholder: "e.g., Acme Innovations Ltd."
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Primary Contact Email or LinkedIn
+      description: Where can I reach you directly?
+      placeholder: "e.g., contact@company.com or linkedin.com/in/..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: Architecture Engagement Type
+      options:
+        - "Full-Stack Web Application (End-to-End Build)"
+        - "Web3D / WebGL Interactive Studio or Customizer"
+        - "Web Audio / Real-Time DSP Audio Processing"
+        - "High-Performance Data Visualization / Telemetry Dashboard"
+        - "In-Browser Database / SQLite WASM Architecture"
+        - "Frontend Performance Optimization & Architecture Audit"
+        - "Fractional Principal Architect / Advisory"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Project Overview & Core Requirements
+      description: Describe the core objectives, required features, and user experience targets.
+      placeholder: "Outline your goals, target audience, and any reference designs or technical requirements..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: Estimated Timeline
+      options:
+        - "Immediate (< 2 weeks)"
+        - "1 - 2 Months"
+        - "Quarterly (3 - 6 Months)"
+        - "Flexible / Long-Term Retainer"
+    validations:
+      required: true
+
+  - type: input
+    id: budget_range
+    attributes:
+      label: Allocated Budget Range (USD)
+      description: Approximate capital budget earmarked for this engineering engagement.
+      placeholder: "e.g., $10k - $25k, $25k - $50k, $50k+"
+    validations:
+      required: false

@@ -1,10 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+/**
+ * PROPRIETARY & CONFIDENTIAL
+ * (c) 2024-2026 Alok Vishwakarma. All Rights Reserved.
+ * Showcase & Client Evaluation Only. Commercial use strictly prohibited.
+ */
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+import { displayProvenanceWatermark } from './utils/watermark'
+
+displayProvenanceWatermark('IncidentPulse — SRE Telemetry & Topology Center')
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>,
 )

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { displayProvenanceWatermark } from './watermark';
 import { 
   ArrowRight, 
   FileDown, 
@@ -50,6 +51,10 @@ export default function MasterHubPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  useEffect(() => {
+    displayProvenanceWatermark('Alok Vishwakarma Master Architecture Hub');
+  }, []);
 
   const filteredProjects = PROJECTS.filter((project) => {
     const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory;
@@ -101,7 +106,7 @@ export default function MasterHubPage() {
               <Linkedin className="w-4 h-4" />
             </a>
             <a
-              href="mailto:alokvishwa1998@gmail.com"
+              href="mailto:contact@alokvishwastudio.in"
               className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-100 text-zinc-950 font-medium text-xs hover:bg-white transition-all shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
@@ -116,7 +121,7 @@ export default function MasterHubPage() {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.015] border border-white/[0.08] text-zinc-300 text-[11px] font-mono tracking-widest uppercase mb-8 shadow-luxury-card backdrop-blur-2xl">
           <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]"></span>
-          <span>✦ PRIVATE COMMISSIONS & ARCHITECTURE</span>
+          <span>✦ AVAILABLE FOR PROJECTS & CONTRACTS</span>
         </div>
 
         {/* Master Headline */}
@@ -131,7 +136,7 @@ export default function MasterHubPage() {
 
         {/* Subtitle */}
         <p className="mt-8 text-base sm:text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed font-light">
-          Engineering state-of-the-art web architectures with specialized mastery in{' '}
+          Building high-performance web applications and interactive systems with specialized focus on{' '}
           <span className="text-white font-medium underline decoration-amber-400/40 underline-offset-4">Next.js (App Router)</span>,{' '}
           <span className="text-white font-medium underline decoration-amber-400/40 underline-offset-4">TypeScript</span>,{' '}
           <span className="text-white font-medium underline decoration-amber-400/40 underline-offset-4">Three.js WebGL</span>,{' '}
@@ -149,11 +154,11 @@ export default function MasterHubPage() {
             <ArrowRight className="w-4 h-4" />
           </a>
           <a
-            href="mailto:alokvishwa1998@gmail.com"
+            href="mailto:contact@alokvishwastudio.in"
             className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-white/10 hover:border-white/25 text-zinc-200 bg-white/[0.02] hover:bg-white/[0.05] font-medium text-sm backdrop-blur-2xl transition-all"
           >
             <Mail className="w-4 h-4 text-zinc-400" />
-            <span>Direct Inquiries</span>
+            <span>Get in Touch</span>
           </a>
         </div>
 
@@ -202,10 +207,10 @@ export default function MasterHubPage() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.015] border border-white/[0.08] text-zinc-400 text-[11px] font-mono mb-4 tracking-widest uppercase shadow-luxury-card">
             <Layers className="w-3.5 h-3.5 text-amber-400/80" />
-            <span>ARCHITECTURAL DIRECTORY</span>
+            <span>PROJECT DIRECTORY</span>
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#f9fafb] tracking-[-0.03em]">
-            Curated Exhibitions
+            Featured Projects & Deployments
           </h2>
         </div>
 
@@ -232,7 +237,7 @@ export default function MasterHubPage() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
               placeholder="Search 15 deployments..."
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.015] border border-white/[0.07] text-sm text-[#f9fafb] placeholder:text-zinc-600 focus:outline-none focus:border-amber-400/40"
             />
@@ -299,8 +304,8 @@ export default function MasterHubPage() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-white/[0.07] bg-[#050505] text-center text-xs font-mono text-zinc-500">
-        <p>© {new Date().getFullYear()} Alok Vishwakarma. Built with Next.js, Three.js WebGL & Web Audio API.</p>
-        <p className="mt-1 text-zinc-600">Ultra-Exclusive Obsidian, Brushed Titanium & Warm Ochre Champagne Architecture</p>
+        <p>© {new Date().getFullYear()} Alok Vishwakarma. Built with Next.js, Three.js & Web Audio API.</p>
+        <p className="mt-1 text-zinc-600">Designed and developed by Alok Vishwakarma</p>
       </footer>
     </div>
   );

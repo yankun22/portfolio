@@ -1,0 +1,62 @@
+name: Project Inquiry / Commission
+description: Inquire about custom software development, contract roles, or project work.
+title: "[INQUIRY]: <Project or Company Name>"
+labels: ["inquiry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Project Inquiry
+        Interested in working together or hiring me for a project?
+        Please share a few details below, or reach out directly at **[contact@alokvishwastudio.in](mailto:contact@alokvishwastudio.in)**.
+
+  - type: input
+    id: organization
+    attributes:
+      label: Company / Organization Name
+      placeholder: "e.g., Acme Corp or Personal Project"
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Email or LinkedIn
+      placeholder: "e.g., contact@company.com"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: Project Type
+      options:
+        - "Full-Stack Web Application"
+        - "3D / WebGL Interactive Experience"
+        - "Web Audio / Audio DSP Tooling"
+        - "Data Visualization / Analytics Dashboard"
+        - "Performance Optimization & Code Audit"
+        - "Contract / Freelance Role"
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Project Overview
+      description: Brief description of what you're looking to build.
+      placeholder: "Goals, key features, and any technical requirements..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timeline
+    attributes:
+      label: Target Timeline
+      options:
+        - "Less than 1 month"
+        - "1 - 3 months"
+        - "3+ months"
+        - "Flexible"
+    validations:
+      required: true

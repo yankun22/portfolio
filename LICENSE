@@ -1,0 +1,21 @@
+Showcase & Evaluation License
+
+Copyright (c) 2024-2026 Alok Vishwakarma. All rights reserved.
+
+Permission is hereby granted to any person inspecting this repository to view the source code and run it locally solely for the purposes of portfolio evaluation, recruitment review, and prospective client due diligence.
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+RESTRICTIONS & PROHIBITED USES:
+Without prior written permission from the copyright holder, you may not:
+1. Deploy or host the software (or any derivative work) on any public server, cloud platform, or website.
+2. Sell, sublicense, rent, lease, or commercially exploit the software or any portion thereof.
+3. Whitelabel, rebrand, or represent this codebase or its UI designs as your own creation.
+4. Extract proprietary components, simulation models, or audio DSP algorithms for use in commercial products.
+
+COMMERCIAL INQUIRIES:
+To license components or discuss custom engineering commissions, contact:
+Alok Vishwakarma <contact@alokvishwastudio.in>
+Website: https://github.com/yankun22/portfolio
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

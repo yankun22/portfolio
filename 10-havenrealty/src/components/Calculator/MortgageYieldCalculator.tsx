@@ -8,9 +8,6 @@ import {
   Shield,
   Layers,
   Calendar,
-  Sparkles,
-  Info,
-  Sliders,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
@@ -28,20 +25,13 @@ export const MortgageYieldCalculator: React.FC<MortgageYieldCalculatorProps> = (
   currency,
 }) => {
   const downPaymentId = useId();
-  const interestRateId = useId();
-  const loanTermId = useId();
-  const propertyTaxId = useId();
-  const hoaId = useId();
-  const rentalIncomeId = useId();
-  const occupancyId = useId();
-
   const [price, setPrice] = useState<number>(property.purchasePrice);
   const [downPaymentPct, setDownPaymentPct] = useState<number>(20);
   const [loanTermYears, setLoanTermYears] = useState<number>(30);
   const [interestRate, setInterestRate] = useState<number>(6.5);
-  const [propertyTaxRate, setPropertyTaxRate] = useState<number>(property.propertyTaxRate);
-  const [insuranceAnnual, setInsuranceAnnual] = useState<number>(property.insuranceAnnual);
-  const [hoaMonthly, setHoaMonthly] = useState<number>(property.hoaMonthly);
+  const propertyTaxRate = property.propertyTaxRate;
+  const insuranceAnnual = property.insuranceAnnual;
+  const hoaMonthly = property.hoaMonthly;
   const [monthlyRentalIncome, setMonthlyRentalIncome] = useState<number>(property.projectedMonthlyRent);
   const [occupancyRate, setOccupancyRate] = useState<number>(property.estimatedOccupancy);
   const [showAmortization, setShowAmortization] = useState<boolean>(false);

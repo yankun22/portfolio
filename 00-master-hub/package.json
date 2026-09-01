@@ -2,6 +2,8 @@
   "name": "00-master-hub",
   "version": "1.0.0",
   "private": true,
+  "author": "Alok Vishwakarma <contact@alokvishwastudio.in>",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -56,7 +56,7 @@ export function extractTags(markdown: string): string[] {
   }
 
   // 2. Inline hashtags (#tag-name) - excluding markdown headers like # Header
-  const inlineTagRegex = /(?:^|\s)#([a-zA-Z0-9_\-\/]+)(?=\s|$)/g;
+  const inlineTagRegex = /(?:^|\s)#([a-zA-Z0-9_\-/]+)(?=\s|$)/g;
   let inlineMatch: RegExpExecArray | null;
   while ((inlineMatch = inlineTagRegex.exec(markdown)) !== null) {
     const tag = inlineMatch[1].trim().toLowerCase();
@@ -180,7 +180,7 @@ export function renderMarkdown(markdown: string, existingNoteTitles: Set<string>
   });
 
   // 2. Math Inline: $...$
-  html = html.replace(/\$([^\$\n]+?)\$/g, (_, math) => {
+  html = html.replace(/\$([^$\n]+?)\$/g, (_, math) => {
     try {
       return katex.renderToString(math.trim(), { displayMode: false, throwOnError: false });
     } catch {
@@ -189,7 +189,7 @@ export function renderMarkdown(markdown: string, existingNoteTitles: Set<string>
   });
 
   // 3. Code Blocks: ```lang ... ```
-  html = html.replace(/```([a-zA-Z0-9_\-]+)?\r?\n([\s\S]*?)```/g, (_, lang, code) => {
+  html = html.replace(/```([a-zA-Z0-9_-]+)?\r?\n([\s\S]*?)```/g, (_, lang, code) => {
     const escapedCode = code
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -227,7 +227,7 @@ export function renderMarkdown(markdown: string, existingNoteTitles: Set<string>
   html = html.replace(/^>\s?(.*)$/gm, '<blockquote class="md-quote">$1</blockquote>');
 
   // 9. Hashtags: #tag-name
-  html = html.replace(/(^|\s)#([a-zA-Z0-9_\-\/]+)(?=\s|$)/g, '$1<span class="tag-pill" data-tag="$2">#$2</span>');
+  html = html.replace(/(^|\s)#([a-zA-Z0-9_\-/]+)(?=\s|$)/g, '$1<span class="tag-pill" data-tag="$2">#$2</span>');
 
   // 10. Bold & Italic
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');

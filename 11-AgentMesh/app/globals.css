@@ -1,0 +1,62 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.10);
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background-color: #08090C;
+  }
+
+  body {
+    background-color: #08090C;
+    color: #F9FAFB;
+    min-height: 100vh;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Cyber dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #08090C;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #181E29;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2EE59D;
+  }
+}
+
+@layer utilities {
+  .text-mint-glow {
+    text-shadow: 0 0 16px rgba(46, 229, 157, 0.45);
+  }
+
+  .text-cyan-glow {
+    text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  }
+
+  .border-glass {
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
+  .bg-glass {
+    background: rgba(13, 17, 23, 0.80);
+    backdrop-filter: blur(16px);
+  }
+}
